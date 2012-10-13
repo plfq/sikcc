@@ -12,9 +12,9 @@ class GroupAction extends Action {
      */
     public function newGroup() {
         $group = D('NewGroup')->select();
-
+        $userObj = D('User');
         foreach ($group as $key => $value) {
-            $group[$key]['masterName'] = D('User')->where(array('id' => $value['master_id']))->getField('username');
+            //$group[$key]['masterName'] = $userObj->where(array('id' => $value['master_id']))->getField('username');
         }
         $this->assign('group', $group);
         $this->display();

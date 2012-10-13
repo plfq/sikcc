@@ -26,7 +26,7 @@ class MessageModel extends Model {
         } else {
             $NUM = 0;
         }
-        $rM = D('Message_' . $NUM)->add(array('sender' => $sender, 'receiver' => $receiver, 'content' => $content, 'date' => time()));
+        $rM = M('Message_' . $NUM)->add(array('sender' => $sender, 'receiver' => $receiver, 'content' => $content, 'date' => time()));
         /** // 更新最近联系人 #暂时不使用a最近联系人
           $linkmanObj = D('Linkman');
           $rL = $linkmanObj->save(array('receiver' => $receiver, 'sender' => $sender, 'date' => time()));

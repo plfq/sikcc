@@ -164,7 +164,7 @@ function import($class, $baseUrl = '', $ext = '.class.php') {
 			$baseUrl = APP_PATH . '../' . $class_strut[0] . '/' . basename(LIB_PATH) . '/';
 		}
 	}
-
+    
 	if (substr($baseUrl, -1) != '/')
 		$baseUrl .= '/';
 	$classfile = $baseUrl . $class . $ext;
