@@ -19,7 +19,6 @@ class MessageModel extends Model {
 		if (!$sendId || !$receiveId || !$content) {
 			return FALSE;
 		}
-		$this;
 	}
 
 }
