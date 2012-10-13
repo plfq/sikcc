@@ -39,10 +39,23 @@ class GroupAction extends Action {
         $id = $this->_get('id');
         $group = D('NewGroup')->where(array('id' => $id))->find();
         $tags = array_filter(explode(' ', $group['tags']));
-        $r = D('Group/GTags')->saveTags($tags, $group['id']);
-        if ($r) {
+        //贴标签
+        $rT = D('Group/GTags')->saveTags($tags, $group['id']);
+        //写入到group表中！
+        $data['name'] = $group['name'];
+        $data['master_id'] = $group['master_id'];
+        $groupId = D('Group')->add($data);
+        $groupId || $this->error('写入小组表出错了');
+        $dataEx['group_id'] = $groupId;
+        $dataEx['join'] = $group['type'];
+        $dataEx['date'] = time();
+        $rE = D('GroupEx')->add($dataEx);
+        //写入简介
+        $rA = D('About')->add(array('group_id' => $groupId, 'about' => $group['about']));
+        if ($rT || $rE || $rA) {
             D('NewGroup')->where(array('id' => $id))->delete();
-            $this->success('OK了！');
+            D('Home/Message')->send('恭喜你！' . $group['name'] . '小组创建成功！', $group['master_id'], '1');
+            $this->success('OK了！', U('Admin/Group/NewGroup'));
         } else {
             $this->error('Debug吧！亲！');
         }
@@ -55,9 +68,10 @@ class GroupAction extends Action {
         $id = $this->_get('id');
         $r = D('NewGroup')->where(array('id' => $id))->delete();
         if ($r) {
-            D('Home/Message')->send();
+            D('Home/Message')->send('你申请的' . $group['name'] . '小组未通过！', $group['master_id'], '1');
+            $this->success('删除了！', U('Admin/Group/NewGroup'));
         } else {
-            
+            $this->error('Debug吧！亲！');
         }
     }
 
