@@ -1,5 +1,4 @@
 sikcc
 =====
 
-这里是sikcc！ 
-欢迎你！
+Hello！This is Sikcc
