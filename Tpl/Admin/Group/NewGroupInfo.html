@@ -1,7 +1,0 @@
-<div>
-	名字：{$group.name}<br/>
-	申请人：<a href="{:U('Home/User/info','id='.$master['id'])}">{$master.username}</a><br/>
-	Email:{$master.email}<br/>
-	简介：<p>{$group.about}</p><br/>
-	<a href="__URL__/pass/id/{$group.id}"> 通过</a> <a href="__URL__/refuse/id/{$group.id}">拒绝</a>
-</div>
