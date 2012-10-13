@@ -1,0 +1,15 @@
+<table border="0">
+
+	<tr>
+		<th>小组名字</th>
+		<th>申请个人</th>
+		<th>查看</th>
+	</tr>
+	<volist name="group" id="one">
+	<tr>
+		<td>{$one.name}</td>
+		<td>{$one.masterName}</td>
+		<td><a href="__URL__/newGroupInfo/id/{$one.id}">查看详情</a></td>
+	</tr>
+	</volist>
+</table>
