@@ -50,7 +50,7 @@ class GroupAction extends Action {
         $dataEx['join'] = $group['type'];
         $dataEx['date'] = time();
         $rE = D('GroupEx')->add($dataEx);
-        //写入简介
+        //写入小组简介
         $rA = D('About')->add(array('group_id' => $groupId, 'about' => $group['about']));
         if ($rT || $rE || $rA) {
             D('NewGroup')->where(array('id' => $id))->delete();
