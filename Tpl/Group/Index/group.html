@@ -1,0 +1,19 @@
+<div>
+    小组名字：{$group.name} 
+    组长：<a href="#{$master.id}">{$master.username}</a><br />
+    <if condition="$isMember" >
+        <a href="#{$Think.session.user_id}" >推出小组</a>
+        <else/>
+        <if condition="$_SESSION['user_id']">
+            <a href="__GROUP__/Member/join/group/{$group.id}">加入小组</a>
+            <else/>
+            <a href="{:U('Home/Login/index')}" class="Login">加入小组</a>
+        </if>
+    </if>
+    <div>
+        <div>小组简介</div>
+        <div>
+            {$groupAbout}
+        </div>
+    </div>
+</div>
