@@ -1,0 +1,12 @@
+<div>
+    <form action="__URL__/saveAdvEdit/group/{$group.id}" method="POST">
+        小组名字：<input type="text" name="name" value="{$group.name}"/><br/>
+
+        <volist name="groupTopicType" id="typeName">
+            帖子分类：<input type="text" name="typeName[{$i}]" value="{$typeName.name}"/><br/>
+            <input type="hidden" name="typeNameId[{$i}]" value="{$typeName.id}">
+        </volist>
+        <input type="hidden" name="groupId" value="{$group.id}"/>
+        <input type="submit" value="保存"/>
+    </form>
+</div>
