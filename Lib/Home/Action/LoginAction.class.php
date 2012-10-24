@@ -32,7 +32,7 @@ class LoginAction extends Action {
             $notSay = '您被禁止发言！<br>' . $r['remark'];
         }
         if ($user > 0) {
-            $this->success($user['username'] . '<br/>欢迎回来！' . $notSay, $HTTP_REFERER ? $HTTP_REFERER : __APP__);
+            $this->success($user['name'] . '<br/>欢迎回来！' . $notSay, $HTTP_REFERER ? $HTTP_REFERER : __APP__);
         } else {
             switch ($user) {
                 case -1:

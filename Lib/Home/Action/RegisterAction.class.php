@@ -26,7 +26,7 @@ class RegisterAction extends Action {
         $email = $this->_post("email");
         $password = $this->_post("password");
         $HTTP_REFERER = $this->_post('HTTP_REFERER');
-        $registerObj = M('Register');
+        $registerObj = D('Register');
         $r = $registerObj->register($username, $email, $password);
         if ($r > 0) {
             $this->success('注册成功！', $HTTP_REFERER ? $HTTP_REFERER : __APP__);

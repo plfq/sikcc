@@ -6,7 +6,7 @@ return array(
 	'SESSION_TYPE' => 'DB', // session hander类型 默认无需设置 除非扩展了session hander驱动
 	'DB_TYPE'=>'mysql',
 	'DB_HOST'=>'localhost',
-	'DB_NAME'=>'group',
+	'DB_NAME'=>'sikcc',
 	'DB_USER'=>'root',
 	'DB_PWD'=>'580619',
 	'DB_PORT'=>'3306',

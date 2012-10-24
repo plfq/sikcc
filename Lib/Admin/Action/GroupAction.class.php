@@ -53,7 +53,7 @@ class GroupAction extends Action {
         //把组长写入到管理员表
         $rAD = M('GroupAdmin')->add(array('group_id' => $groupId, 'user_id' => $group['master_id'], 'master' => TRUE, 'date' => time())); //master必须设定为TRUE
         //写入小组简介
-        $rA = D('About')->add(array('group_id' => $groupId, 'about' => $group['about']));
+        $rA = D('GAbout')->add(array('group_id' => $groupId, 'about' => $group['about'],'date'=>time()));
         if ($rT || $rE || $rA || $rAD) {
             D('NewGroup')->where(array('id' => $id))->delete();
             D('Home/Message')->send('恭喜你！' . $group['name'] . '小组创建成功！', $group['master_id'], '1');

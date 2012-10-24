@@ -22,7 +22,7 @@ class IndexAction extends Action {
         $group = D('Group')->find(array('id' => $groupId));
         $groupAbout = M('GAbout')->where(array('group_id' => $groupId))->getField('about');
         $isMember = D('Member')->is_member($groupId);
-        $master['username'] = M('User')->where(array('id' => $group['master_id']))->getField('username');
+        $master['username'] = M('User')->where(array('id' => $group['master_id']))->getField('name');
         $master['id'] = $group['master_id'];
         $this->assign('group', $group);
         $this->assign('groupAbout', $groupAbout);

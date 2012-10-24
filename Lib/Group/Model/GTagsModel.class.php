@@ -41,6 +41,7 @@ class GTagsModel extends Model {
 
 	/**
 	 * 把标签贴在小组上
+	 * @todo 加上计数器，控制在5个
 	 * @param type $group_id
 	 * @param type $tags
 	 */
