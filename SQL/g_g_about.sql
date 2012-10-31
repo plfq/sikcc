@@ -19,8 +19,3 @@ CREATE TABLE `g_g_about` (
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of g_g_about
--- ----------------------------
-INSERT INTO `g_g_about` VALUES ('1', '官方 小组', '1351086079');
-INSERT INTO `g_g_about` VALUES ('2', '出生地', '1351086186');

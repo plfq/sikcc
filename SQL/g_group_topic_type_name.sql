@@ -18,7 +18,3 @@ CREATE TABLE `g_group_topic_type_name` (
   `group_id` int(11) NOT NULL COMMENT '小组Id',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_group_topic_type_name
--- ----------------------------

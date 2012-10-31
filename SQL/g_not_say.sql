@@ -20,7 +20,3 @@ CREATE TABLE `g_not_say` (
   `long` int(11) NOT NULL DEFAULT '0' COMMENT '被禁言时长',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_not_say
--- ----------------------------

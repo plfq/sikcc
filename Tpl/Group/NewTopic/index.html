@@ -1,0 +1,18 @@
+<div>
+<form action="__URL__/newTopic" method="POST">
+	标题：<input type="text" name="title" /><br/>
+	
+	内容：<br /><textarea name="content"  cols="30" rows="10"></textarea>
+	<div id="topicType" style="position:absolute;right:300px;top:30px;">
+	
+		<volist name="topicType" id="one">
+		<a href="#" class="type" id="{$one.id}">{$one.name}</a><br />
+		</volist>
+	
+	</div>
+	<div class="hidden">
+		<input type="hidden" name="groupId" value="{$groupId}"/>
+	</div>
+	<input type="submit" value="发言"/>
+</form>
+</div>

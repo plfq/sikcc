@@ -19,7 +19,4 @@ CREATE TABLE `g_session` (
   UNIQUE KEY `session_id` (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of g_session
--- ----------------------------
 

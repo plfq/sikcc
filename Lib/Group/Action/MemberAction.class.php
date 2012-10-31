@@ -13,7 +13,7 @@ class MemberAction extends Action {
     public function join() {
         $groupId = $this->_get('group');
         if (!USER_ID || !$groupId) {
-            $this->error('搞毛啊！！');
+            $this->error('搞毛啊！！去登陆吧！');
         } else {
             $r = D('Member')->addMember($groupId);
             if ($r) {

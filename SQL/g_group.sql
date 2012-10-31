@@ -21,6 +21,3 @@ CREATE TABLE `g_group` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of g_group
--- ----------------------------

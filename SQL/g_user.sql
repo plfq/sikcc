@@ -20,8 +20,3 @@ CREATE TABLE `g_user` (
   `password` char(255) NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_user
--- ----------------------------
-INSERT INTO `g_user` VALUES ('1', null, 'Admin', 'admin@admin.com', 'admin');

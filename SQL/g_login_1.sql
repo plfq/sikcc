@@ -20,7 +20,3 @@ CREATE TABLE `g_login_1` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of g_login_1
--- ----------------------------
-

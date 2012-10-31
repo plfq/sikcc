@@ -22,7 +22,3 @@ CREATE TABLE `g_new_group` (
   `date` int(11) NOT NULL COMMENT '申请时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_new_group
--- ----------------------------

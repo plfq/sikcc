@@ -18,8 +18,3 @@ CREATE TABLE `g_user_ex` (
   `regdate` int(11) NOT NULL COMMENT '注册时间',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_user_ex
--- ----------------------------
-INSERT INTO `g_user_ex` VALUES ('1', '0', '1351085981');

@@ -18,7 +18,3 @@ CREATE TABLE `g_group_ex` (
   `date` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_group_ex
--- ----------------------------

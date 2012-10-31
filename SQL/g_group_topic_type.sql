@@ -20,7 +20,3 @@ CREATE TABLE `g_group_topic_type` (
   `topic_type_4` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_group_topic_type
--- ----------------------------

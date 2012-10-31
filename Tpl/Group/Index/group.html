@@ -2,7 +2,8 @@
     小组名字：{$group.name} 
     组长：<a href="#{$master.id}">{$master.username}</a><br />
     <if condition="$isMember" >
-        <a href="#{$Think.session.user_id}" >推出小组</a>
+        <a href="#{$Think.session.user_id}" >退出小组</a><br/>
+        <a href="__URL__"> 我要发言</a>
         <else/>
         <if condition="$_SESSION['user_id']">
             <a href="__GROUP__/Member/join/group/{$group.id}">加入小组</a>

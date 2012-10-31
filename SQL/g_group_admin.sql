@@ -20,7 +20,3 @@ CREATE TABLE `g_group_admin` (
   `date` int(11) NOT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of g_group_admin
--- ----------------------------
