@@ -1,4 +1,4 @@
 sikcc
 =====
 
-Hello！This is Sikcc
+Hello!This is Sikcc!
