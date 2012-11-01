@@ -45,6 +45,33 @@ class TopicModel extends Model {
 		return $topicId;
 	}
 
+	/**
+	 * @param type $groupId 小组Id
+	 * @param type $typeId 帖子类型的Id
+	 * @param bool $isPage 是否分页
+	 * @return array
+	 */
+	public function topicList($groupId, $typeId = 'All', $isPage = FALSE, $num = 10) {
+		$page = $_REQUEST['page'];
+		if (!$page || !$isPage) {
+			$page = 1;
+		}
+		$NUM = substr($groupId, -1);
+		$where = array('group_id' => $groupId);
+		if (strtolower($typeId) == 'all') {
+			;
+		} else {
+			$where['type_id'] = $typeId;
+		}
+		$list = M('Topic_' . $NUM)->page($page, $num)->where($where)->select();
+		if ($isPage) {
+			import("ORG.Page");
+			$pageObj = new Page(M('Topic_' . $NUM)->where($where)->count(), $page, $num);
+			$pageObj->show();
+		}
+		return $list;
+	}
+
 }
 
 ?>
