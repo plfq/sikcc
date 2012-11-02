@@ -24,7 +24,7 @@ class IndexAction extends Action {
 		$isMember = D('Member')->is_member($groupId);
 		$master['username'] = M('User')->where(array('id' => $group['master_id']))->getField('name');
 		$master['id'] = $group['master_id'];
-		$topic = D('Topic')->topicList($groupId, 'All', FALSE, 20);
+		$topic = D('Topic')->topicList($groupId, 'All', FALSE, 25);
 		$this->assign('group', $group);
 		$this->assign('groupAbout', $groupAbout);
 		$this->assign('isMember', $isMember);

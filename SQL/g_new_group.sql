@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-申请创建的小组信息，后台查看
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:50:53
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:38:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,4 +28,8 @@ CREATE TABLE `g_new_group` (
   `master_id` int(11) NOT NULL COMMENT '组长ID',
   `date` int(11) NOT NULL COMMENT '申请时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_new_group
+-- ----------------------------

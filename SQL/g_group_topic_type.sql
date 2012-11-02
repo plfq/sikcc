@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-限制和记录小组的帖子类型关系
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:49:16
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:35:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,3 +27,8 @@ CREATE TABLE `g_group_topic_type` (
   `topic_type_4` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_group_topic_type
+-- ----------------------------
+

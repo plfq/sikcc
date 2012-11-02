@@ -63,13 +63,36 @@ class TopicModel extends Model {
 		} else {
 			$where['type_id'] = $typeId;
 		}
-		$list = M('Topic_' . $NUM)->page($page, $num)->where($where)->select();
+		$topicObj = M('Topic_' . $NUM);
+		$list = $topicObj->page($page, $num)->where($where)->select();
 		if ($isPage) {
 			import("ORG.Page");
-			$pageObj = new Page(M('Topic_' . $NUM)->where($where)->count(), $page, $num);
+			$pageObj = new Page($topicObj->where($where)->count(), $page, $num);
 			$pageObj->show();
 		}
 		return $list;
+	}
+
+	/**
+	 * 查看某个帖子的详情
+	 * 根据帖子的Id进行不同的分表读取github WIKI上有分表思路
+	 * @param type $topicId
+	 * @return array
+	 */
+	public function topic($topicId) {
+		if ($topicId < 1000000) {//1百万
+			$NUM = 0;
+		} else {
+			$NUM = substr($topicId, 0, 1);
+		}
+		$topicObj = M('Topic_' . $NUM);
+		$topic = $topicObj->where(array('id' => $topicId))->find();
+		if (!$topic)
+			return FALSE;
+		$topic['content'] = M('TopicContent_' . $NUM)->where(array('group_id' => $topicId))->getField('content');
+		//添加一次阅读
+		$r = $topicObj->setInc('read');
+		return $topic;
 	}
 
 }

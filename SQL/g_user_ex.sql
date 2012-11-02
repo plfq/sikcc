@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-用户扩展信息表
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:51:21
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:40:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -18,3 +25,8 @@ CREATE TABLE `g_user_ex` (
   `regdate` int(11) NOT NULL COMMENT '注册时间',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_user_ex
+-- ----------------------------
+

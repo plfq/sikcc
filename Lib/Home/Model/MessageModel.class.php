@@ -21,11 +21,12 @@ class MessageModel extends Model {
 		}
 		//获取第几message表；##可以分成10个
 		$NUM = substr($sender + $receiver, -1);
-		if ($NUM > 5) {
-			$NUM = 1;
-		} else {
-			$NUM = 0;
-		}
+		/* if ($NUM > 5) {
+		  $NUM = 1;
+		  } else {
+		  $NUM = 0;
+		  }
+		 */
 		$rM = M('Message_' . $NUM)->add(array('sender' => $sender, 'receiver' => $receiver, 'content' => $content, 'date' => time()));
 		/** // 更新最近联系人 #暂时不使用a最近联系人，考虑下是否加好友后才可以发纸条
 		  $linkmanObj = D('Linkman');

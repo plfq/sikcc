@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2012-11-01 08:53:52
+Date: 2012-11-02 18:33:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,6 +28,8 @@ CREATE TABLE `g_topic_0` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -48,8 +50,10 @@ CREATE TABLE `g_topic_1` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1000004 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_topic_1
@@ -68,6 +72,8 @@ CREATE TABLE `g_topic_2` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -88,6 +94,8 @@ CREATE TABLE `g_topic_3` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -108,6 +116,8 @@ CREATE TABLE `g_topic_4` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -128,6 +138,8 @@ CREATE TABLE `g_topic_5` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -148,6 +160,8 @@ CREATE TABLE `g_topic_6` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -168,6 +182,8 @@ CREATE TABLE `g_topic_7` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -188,6 +204,8 @@ CREATE TABLE `g_topic_8` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -208,6 +226,8 @@ CREATE TABLE `g_topic_9` (
   `edit_time` int(11) DEFAULT NULL COMMENT '最后编辑时间',
   `last_time` int(11) NOT NULL COMMENT '最后更新时间，包括回帖的时间',
   `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '帖子类型，默认为0可以不写',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '已经被阅读次数',
+  `retopic` int(11) NOT NULL DEFAULT '0' COMMENT '所有回复统计',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

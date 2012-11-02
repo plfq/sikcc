@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2012-11-01 09:02:36
+Date: 2012-11-02 18:40:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,6 +42,7 @@ CREATE TABLE `g_topic_content_1` (
 -- ----------------------------
 -- Records of g_topic_content_1
 -- ----------------------------
+
 
 -- ----------------------------
 -- Table structure for `g_topic_content_2`

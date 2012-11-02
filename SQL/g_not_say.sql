@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-被禁言用户相关表
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:50:59
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:38:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,3 +27,7 @@ CREATE TABLE `g_not_say` (
   `long` int(11) NOT NULL DEFAULT '0' COMMENT '被禁言时长',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_not_say
+-- ----------------------------

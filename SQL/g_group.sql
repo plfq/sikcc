@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-小组表
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:48:07
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:35:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -19,5 +26,8 @@ CREATE TABLE `g_group` (
   `master_id` int(11) NOT NULL COMMENT '小组长Id',
   `icon` char(255) NOT NULL DEFAULT 'defined.png' COMMENT '小组图标',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of g_group
+-- ----------------------------

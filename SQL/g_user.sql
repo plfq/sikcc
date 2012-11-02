@@ -1,9 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-用户表
+Source Server         : MySQL
+Source Server Version : 50528
+Source Host           : localhost:3306
+Source Database       : sikcc
 
-Date: 2012-10-24 21:51:14
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2012-11-02 18:40:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,3 +27,8 @@ CREATE TABLE `g_user` (
   `password` char(255) NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_user
+-- ----------------------------
+
