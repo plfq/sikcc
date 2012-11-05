@@ -42,6 +42,7 @@ class GroupAction extends Action {
         //贴标签
         $rT = D('Group/GTags')->saveTags($tags, $group['id']);
         //写入到group表中！
+		$data['gclass'] = $this->post('gclass');//写入小组分类
         $data['name'] = $group['name'];
         $data['master_id'] = $group['master_id'];
         $groupId = D('Group')->add($data);

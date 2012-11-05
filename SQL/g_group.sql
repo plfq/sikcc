@@ -25,6 +25,9 @@ CREATE TABLE `g_group` (
   `name` char(255) NOT NULL COMMENT '小组名字',
   `master_id` int(11) NOT NULL COMMENT '小组长Id',
   `icon` char(255) NOT NULL DEFAULT 'defined.png' COMMENT '小组图标',
+  `gclass`  int(11) NOT NULL COMMENT '小组的分类，类别',
+
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 

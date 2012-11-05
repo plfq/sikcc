@@ -1,0 +1,77 @@
+
+<include file="./Tpl/Public/header.html" title="{$topic.title}" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$topic.title}</h1>
+		<style type="text/css">
+			p.speech {
+				position:relative;
+				float:right;
+				width:500px;
+				min-height:60px;
+				line-height:30px;
+				background-color:#fff;
+				border:1px solid #666;
+				-webkit-border-radius:1px;
+				-moz-border-radius:1px;
+				border-radius:5px;
+				-webkit-box-shadow:1px 1px 2px #888;
+				-moz-box-shadow:1px 1px 2px #888;
+				box-shadow:1px 1px 2px #888;
+			}
+			p.speech:before {
+				content:' ';
+				position:absolute;
+				width:0;
+				height:0;
+				left:-20px;
+				top:20px;
+				border:10px solid;
+				border-color: #666 #666 transparent transparent;
+			}
+			p.speech:after {
+				content:' ';
+				position:absolute;
+				width:0;
+				height:0;
+				left:-18px;
+				top:21px;
+				border:9px solid;
+				border-color: white white transparent transparent;
+			}
+
+
+
+		</style>
+		<p class="speech">
+			<span style="width:500px;background-color:#666;">发表于：2012nian</span> <br />
+				{$topic.content}
+		</p>
+
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+
+
+		<div class="mod" id="db-online-events">
+			<div class="hd">
+				<span class="func">
+					<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+				</span>
+				<h2>
+
+				</h2>
+			</div>
+			<div class="bd">
+			</div>
+		</div>
+		<div class="mod">
+
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

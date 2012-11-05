@@ -89,7 +89,7 @@ class TopicModel extends Model {
 		$topic = $topicObj->where(array('id' => $topicId))->find();
 		if (!$topic)
 			return FALSE;
-		$topic['content'] = M('TopicContent_' . $NUM)->where(array('group_id' => $topicId))->getField('content');
+		$topic['content'] = M('TopicContent_' . $NUM)->where(array('topic_id' => $topicId))->getField('content');
 		//添加一次阅读
 		$r = $topicObj->setInc('read');
 		return $topic;

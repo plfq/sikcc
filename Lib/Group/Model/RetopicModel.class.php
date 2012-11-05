@@ -59,7 +59,7 @@ class RetopicModel extends Model {
 		//开始分页
 		if ($isPage) {
 			import("ORG.Page");
-			$pageObj = new Page($topicObj->where($where)->count(), $page, $num);
+			$pageObj = new Page($retopicObj->where(array('topic_id' => $topicId))->count(), $page, $num);
 			$pageObj->show();
 		}
 		return $list;

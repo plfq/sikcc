@@ -24,7 +24,7 @@ class TopicAction extends Action {
 		$retopic = D('Retopic')->retopicList($topicId);
 		$this->assign('topic', $topic);
 		$this->assign('retopic', $retopic);
-		$this->display();
+		$this->display('topic');
 	}
 
 }

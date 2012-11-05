@@ -11,18 +11,24 @@ class IndexAction extends Action {
 	 * 这里是小组首页！
 	 */
 	public function index() {
-		$this->show('这个是小组首页，登录时候默认是小组动态中心，未登录为浏览小而已');
+
+		if (USER_ID) {
+			redirect(U(__APP__)); //这里的U方法利用一个巧合，其他地方使用就是错误的
+		} else {
+
+			redirect(U('Group/explore'));
+		}
 	}
 
 	/**
 	 * 这里是每个小组的首页！主要是为了优化URL的时候用的
 	 */
 	public function group() {
-		$groupId = $this->_get('group');
+		$groupId = $this->_param(3);
 		$group = D('Group')->find(array('id' => $groupId));
 		$groupAbout = M('GAbout')->where(array('group_id' => $groupId))->getField('about');
 		$isMember = D('Member')->is_member($groupId);
-		$master['username'] = M('User')->where(array('id' => $group['master_id']))->getField('name');
+		$master['name'] = M('User')->where(array('id' => $group['master_id']))->getField('name');
 		$master['id'] = $group['master_id'];
 		$topic = D('Topic')->topicList($groupId, 'All', FALSE, 25);
 		$this->assign('group', $group);
@@ -33,19 +39,7 @@ class IndexAction extends Action {
 		$this->display();
 	}
 
-	/**
-	 * 获取最近更新的帖子
-	 */
-	protected function newTopic() {
-		
-	}
 
-	/**
-	 * 获取最新成员
-	 */
-	protected function newMember() {
-		
-	}
 
 }
 

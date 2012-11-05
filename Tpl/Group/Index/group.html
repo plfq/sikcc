@@ -1,26 +1,67 @@
-<div>
-    小组名字：{$group.name} 
-    组长：<a href="#{$master.id}">{$master.username}</a><br />
-    <if condition="$isMember" >
-        <a href="#{$Think.session.user_id}" >退出小组</a><br/>
-        <a href="{:U('Group/NewTopic/index','group='.$group['id'])}">我要发言</a>
-        <else/>
-        <if condition="$_SESSION['user_id']">
-            <a href="__GROUP__/Member/join/group/{$group.id}">加入小组</a>
-            <else/>
-            <a href="{:U('Home/Login/index')}" class="Login">加入小组</a>
-        </if>
-    </if>
-    <div>
-        <div>小组简介</div>
-        <div>
-            {$groupAbout}
-        </div>
-    </div>
-	<table class="topic">
+
+			<include file="./Tpl/Public/header.html" title="{$group.name}" />
+			<!-- 这里是主体部分content -->
+			<div id="content">
+			
+				<!-- 这里是左边的主体 -->
+				<div class="main">
+					<div id="group_info">
+					<img class="group_icon" src="__PUBLIC__/ICON/{$group.icon}" alt="{$group.name}" width="50px" height="50px"/>
+					<h1 class="group_name">{$group.name}</h1>
+					<div id="join">
+						<a href="">加入小组</a>
+					</div>
+					
+					</div>
+					
+					<div id="group_about">
+						<div class="top">
+							小组创建于：{  }  创建人：<a href="">{$master.name}</a>
+						</div>
+						<p class="about">
+						{$groupAbout}
+						</p>
+					</div>
+					
+					<div id="topic_list">
+					
+					<div class="topic">
+						<div class="title">标题</div>
+						<div class="author">作者</div>
+						<div class="retopic">回复</div>
+						<div class="date">最后更新</div>
+					</div>
+					<volist name="topic" id="one">
+					<div class="topic">
+						<div class="title"><a href="__GROUP__/Topic/{$one.id}">{$one.title}</a></div>
+						<div class="author"><a href="##">{$one.user_id}</a></div>
+						<div class="retopic">{$one.retopic}</div>
+						<div class="date">{$one.last_time}</div>
+					</div>
+					</volist>
+					</div>
+				</div>
+
+				<!-- 这里是右边的部分 -->
+				<div class="side">
+
+
+					<div class="mod" id="db-online-events">
+						<div class="hd">
+							<span class="func">
+								<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+							</span>
+							<h2>
+
+							</h2>
+						</div>
+						<div class="bd">
+						</div>
+					</div>
+					<div class="mod">
+
+					</div>
+				</div>
+			</div>
+		<include file="./Tpl/Public/footer.html"  />
 	
-		<tr>
-		
-		</tr>
-	</table>
-</div>

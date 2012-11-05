@@ -74,14 +74,14 @@ class Page {
 		for ($page = 1; $page <= $pageCount; $page++) {
 			if ($page == $this->page) {
 				if ($page == 1) {
-					$prev = $this->config['prev'] . '前页' . '</span>';
+					$prev = $this->config['prev'] . '<前页' . '</span>';
 				} else {
-					$prev = $this->config['prev'] . $this->config['theme'] . 'href="' . $url . $param . ($page - 1) . '">' . '前页' . '</a></span>';
+					$prev = $this->config['prev'] . $this->config['theme'] . 'href="' . $url . $param . ($page - 1) . '">' . '<前页' . '</a></span>';
 				}
 				if ($page == $pageCount) {
-					$next = $this->config['next'] . '后页' . '</span>';
+					$next = $this->config['next'] . '后页>' . '</span>';
 				} else {
-					$next = $this->config['next'] . $this->config['theme'] . 'href="' . $url . $param . ($page + 1) . '">' . '后页' . '</a></span>';
+					$next = $this->config['next'] . $this->config['theme'] . 'href="' . $url . $param . ($page + 1) . '">' . '后页>' . '</a></span>';
 				}
 				$link .=$this->config['thispage'] . $page . '</span>';
 			} else {

@@ -1,6 +1,63 @@
-<form action="__URL__/login" method="POST">
-邮箱：<input name="email" ><br/>
-密码：<input name="password" ><br/>
-<input type="submit" value="登录">
-<input type="hidden" name="HTTP_REFERER" value="{$HTTP_REFERER}">
-</form>
+
+
+<include file="./Tpl/Public/head.html" title="用户登陆" />
+
+<!-- 这里是头部，header -->
+<div id="header">
+	<!-- 这里是LOGO -->
+	<div class="site_logo">
+		<a href="http://www.sikcc.com"><img src="__PUBLIC__/Image/logo.png" alt="Sikcc"></a>
+	</div>
+
+
+
+</div>
+
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>欢迎回到Sikcc</h1>
+		<div id="login">
+			<form action="__URL__/login" method="POST">
+				<span class="input">
+					邮箱：<input type="text" name="email"/><span class="tips">登陆唯一标识</span>
+				</span>
+				<span class="input">
+					密码：<input type="text" name="password"/><span class="tips">很重要哦！</span>
+				</span>
+				<span class="input">
+					<img src="__PUBLIC__/Image/untitled.png" alt="验证码" />
+				</span>
+
+				<span class="input">
+					验证码：<input type="text" name="untitled"/>
+				</span>
+				<span class="input">
+					<input type="submit" id="register" value="登陆"/>
+				</span>
+				<input type="hidden" name="HTTP_REFERER" value="{$HTTP_REFERER}">
+			</form>
+		</div>
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div>
+			没有账号？<a href="#">请点此注册</a>
+
+		</div>
+		<br />
+		<p>
+		<h2 color="red">《使用协议》</h2>
+		<br />
+		1.如不同意本协议条框，请您主动退出！
+		<br />
+		2.XXXXXX
+		<br />
+		3.XXXXXX
+		</p>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html" />
