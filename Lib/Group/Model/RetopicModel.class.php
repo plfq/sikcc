@@ -16,7 +16,7 @@ class RetopicModel extends Model {
 	 */
 	public function newRetopic($content, $topicId, $brother = FALSE, $userId = FALSE) {
 		$userId || $userId = USER_ID;
-		if (!$userId)
+		if (!$userId || !$content || !$topicId)
 			return FALSE;
 		$data['content'] = $content;
 		$data['topic_id'] = $topicId;
@@ -59,7 +59,7 @@ class RetopicModel extends Model {
 		//开始分页
 		if ($isPage) {
 			import("ORG.Page");
-			$pageObj = new Page($retopicObj->where(array('topic_id' => $topicId))->count(), $page, $num);
+			$pageObj = new Page($retopicObj->where(array('topic_id' => $topicId))->count(), $page, $number);
 			$pageObj->show();
 		}
 		return $list;

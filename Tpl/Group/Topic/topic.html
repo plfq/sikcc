@@ -10,17 +10,19 @@
 			p.speech {
 				position:relative;
 				float:right;
-				width:500px;
+				width:530px;
 				min-height:60px;
 				line-height:30px;
 				background-color:#fff;
-				border:1px solid #666;
+				border:1px solid #ccc;
 				-webkit-border-radius:1px;
 				-moz-border-radius:1px;
 				border-radius:5px;
-				-webkit-box-shadow:1px 1px 2px #888;
-				-moz-box-shadow:1px 1px 2px #888;
-				box-shadow:1px 1px 2px #888;
+				-webkit-box-shadow:1px 1px 2px #aaa;
+				-moz-box-shadow:1px 1px 2px #aaa;
+				box-shadow:1px 1px 2px #aaa;
+				padding:10px;
+
 			}
 			p.speech:before {
 				content:' ';
@@ -30,7 +32,7 @@
 				left:-20px;
 				top:20px;
 				border:10px solid;
-				border-color: #666 #666 transparent transparent;
+				border-color: #ccc #ccc transparent transparent;
 			}
 			p.speech:after {
 				content:' ';
@@ -42,14 +44,117 @@
 				border:9px solid;
 				border-color: white white transparent transparent;
 			}
+			a.head:hover{
 
+				background-color:transparent;
+				text-decoration:none;
+			}
+			.head img{
+				cursor:pointer;
+				border-radius:5px;
+				-webkit-box-shadow:1px 1px 2px #aaa;
+				-moz-box-shadow:1px 1px 2px #aaa;
+				box-shadow:1px 1px 2px #aaa;
+			}
 
+			.topic_date{
+				color:#AAAAAA;
+			}
+			textarea.new_retopic{
+				float:right;
+				width:545px;
+				min-height:200px;
+				border-radius:5px;
+				border-color: #ccc;
+				-webkit-box-shadow:1px 1px 2px #aaa;
+				-moz-box-shadow:1px 1px 2px #aaa;
+				box-shadow:1px 1px 2px #aaa;
+			}
+
+			.textarea_tool{
+				width:545px;
+				float:right;
+				padding:10px 0 10px 0;
+			}
+
+			#retopic_submit{
+				float:right;
+			}
 
 		</style>
-		<p class="speech">
-			<span style="width:500px;background-color:#666;">发表于：2012nian</span> <br />
+		<div style="width:100%;float:left;padding-bottom:15px;">
+			<a class="head" href="###">
+				<img src="__PUBLIC__/HEAD/head.png" alt="作者" />
+			</a>
+			<p class="speech">
+
+				<span class="topic_date">发表于：2012niana <a href="##">作者</a></span> <br />
 				{$topic.content}
-		</p>
+
+			</p>
+		</div>
+		<volist name="retopic" id="one">
+			<div style="width:100%;float:left;padding-bottom:15px;">
+				<a class="head" href="###">
+					<img src="__PUBLIC__/HEAD/head.png" alt="作者" />
+				</a>
+				<p class="speech">
+					<span class="topic_date">发表于：2012niana <a href="##">作者</a></span> <br />
+					{$one.content}
+				</p>
+			</div>
+		</volist>
+		__PAGE__
+
+
+		<!-- At.js-->
+
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/JS/At/css/jquery.atwho.css"/>
+        <script type="text/javascript" src="__PUBLIC__/JS/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/JS/At/js/jquery.caret.js" ></script>
+        <script type="text/javascript" src="__PUBLIC__/JS/At/js/jquery.atwho.js"></script>
+        <script type="text/javascript">
+			$(function() {
+				emojis = [
+					"奔跑", "病了", "不爽", "打地鼠", "得瑟", "得意", "逗上下", "逗转圈", "逗左右", "都不给", "奋斗", "滚过", "汗", "喝奶", "狠", "划", "惊", "狂欢", "懒腰", "泪目", "求表扬", "蠕过", "撒欢", "失落", "刷牙", "睡觉", "躺中枪", "讨厌", "跳跃", "听歌", "吐", "问号", "无聊", "无语", "新建文件夹", "转体", "转头", "走", "喵", "喵喵"
+						]
+				emojis = $.map(emojis, function(value, i) {
+					return {'id': i, 'key': ":" + value + ":", 'name': value}
+				})
+
+				$("textarea#inputer").atWho("@", {choose: 'data-choose',tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>",callback:function(query, callback) {
+
+					var url = "http://127.0.0.1/Index/index";
+					param = {'q': query};
+
+					$.getJSON(url, param, function(data) {
+
+						names = data.data;
+						names = $.map(names, function(value, i) {
+							return {'id': i, 'name': value, 'email': value + "@email.com"};
+						});
+						callback(names);
+					});
+					}
+					/**tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>",
+				 'data': data,
+				 choose: 'data-choose'*/
+				})
+						.atWho(":", {tpl: "<li data-value='${key}'><img src='/Public/Smile/${name}.gif'  height='22' width='22' />${name}</li>", 'data': emojis, choose: "data-value", display_flag: false,
+				})
+
+			});
+        </script>
+		<!-- /At.js -->
+		<form action="__GROUP__/Retopic/newRetopic" class="retopic" method="POST">
+			<textarea name="content" id="inputer" class="new_retopic"></textarea>
+			<div class="textarea_tool">
+				<input type="button" value=": )" title="添加表情"/>
+				<input type="button" value="@" title="@朋友"/>
+				<input type="submit" id="retopic_submit"  value="贴上去"></input>
+			</div>
+			<input type="hidden" name="topic_id" value="{$topic.id}"/>
+		</form>
 
 	</div>
 

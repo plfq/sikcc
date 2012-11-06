@@ -21,6 +21,7 @@ class NewGroupAction extends Action {
 	 * 处理数据，交给logic写入数据库
 	 */
 	public function newGroup() {
+		USER_ID||  $this->error('氧化钙！你咋不登陆？', U('Home/Login/index'));
 		$data['type'] = $this->_post('type');
 		$data['name'] = $this->_post('name');
 		$data['about'] = $this->_post('about');
@@ -35,7 +36,7 @@ class NewGroupAction extends Action {
 		}
 		$r = D('NewGroup')->newGroup($data);
 		if ($r) {
-			$this->success('好了，跪安吧！', U('Index/index'));
+			$this->success('好了，跪安吧！', U('Group/Group/explore'));
 		} else {
 			$this->error('数据库早造反了！你在试试！');
 		}

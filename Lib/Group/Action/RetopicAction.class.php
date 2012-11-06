@@ -11,6 +11,7 @@ class RetopicAction extends Action {
 	 * 增加新回复
 	 */
 	public function newRetopic() {
+		USER_ID||  $this->error('氧化钙！你咋不登陆？', U('Home/Login/index'));
 		$topicId = $this->_param('topic_id');
 		$content = $this->_param('content');
 		$brother = $this->_param('brother');

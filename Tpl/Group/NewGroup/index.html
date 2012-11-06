@@ -1,8 +1,59 @@
-<h1>创建小组</h1>
-<form action="__URL__/newGroup" method="POST">
-类型：<input type="radio" name="type" checked="checked" value="0">公开<input type="radio" name="type" value="1">私密<br/>
-名字：<input name="name" ><br/>
-简介：<input name="about" ><br/>
-标签：<input name="tags" ><br/>
-<input type="submit" value="申请创建">
-</form>
+
+<include file="./Tpl/Public/header.html" title="申请创建小组" />
+<!-- 这里是主体部分content -->
+
+<style type="text/css">
+	textarea{
+		width:400px;
+		height:250px;
+		float:right;
+	}
+</style>
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>申请创建小组</h1>
+		<div id="new_group">
+			<form action="__URL__/newGroup" method="POST">
+				<span class="input">
+					类型：<input type="radio" name="type" checked="checked" value="0">公开<input type="radio" name="type" value="1">私密
+				</span>
+				<span class="input">
+					名字：<input type="text" name="name"/>
+				</span>
+				<span class="input">
+					简介：<textarea name="about"></textarea>
+				</span>
+				<span class="input">
+					标签：<input type="text" name="tags"/>
+				</span>
+				<span class="input">
+					<input type="submit" value="申请创建">
+				</span>
+			</form>
+		</div>
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+
+
+		<div class="mod" id="db-online-events">
+			<div class="hd">
+				<span class="func">
+					<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+				</span>
+				<h2>
+
+				</h2>
+			</div>
+			<div class="bd">
+			</div>
+		</div>
+		<div class="mod">
+
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

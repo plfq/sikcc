@@ -61,6 +61,8 @@ class Page {
 		if ($this->count % $this->num > 0) {
 			$pageCount+=1;
 		}
+		if ($pageCount <= 1)
+			define('__PAGE__', NULL);
 
 		//判断URL模式
 		if (C('URL_MODEL') == 0) {
@@ -90,6 +92,7 @@ class Page {
 		}
 		$div = $this->config['div'] . $prev . $this->config['prev'].=$link . $next . '</div>';
 		define('__PAGE__', $div);
+		return;
 	}
 
 }

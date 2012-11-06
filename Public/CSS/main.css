@@ -33,6 +33,8 @@ body {
 	width:980px;
 	padding:0 12px;
 	margin:0 auto;
+	background:url(../Image/back_2.png) repeat;
+	background-color:#FFFFFF;
 }
 select,input,textarea {
 	outline:none;
@@ -58,7 +60,7 @@ h1{
 	word-wrap: break-word;
 	font-size: 25px;
 	color: #494949;
-	padding: 15px 0 15px 30px;
+	padding: 15px 0 15px 15px;
 }
 
 /*
@@ -67,7 +69,7 @@ h1{
 
 /*顶部导航布局*/
 #top_nav {
-
+	z-index:10;
 	width:100%;
 	height:40px;
 	line-height:40px;
@@ -119,7 +121,11 @@ h1{
 	clear: both;
 	float: left;
 }
-.site_logo{
+.site_logo a img{
+	float:left;
+}
+.site_logo a:hover{
+	background:transparent;
 	float:left;
 }
 .search{
@@ -157,21 +163,28 @@ footer
 
 /*登陆和注册页面*/
 
-input[type=submit]{
+input[type=submit],input[type=button]{
 	color: white;
 	background: #007DDB;
 	border: 1px solid #007DDD;
 	cursor: pointer;
 	border-radius: 2px;
 }
+input[type=text]{
+	width:250px;
+	border: 1px solid #aaaaaa;
+	border-radius:3px;
+	
+}
 .tips{
 	margin-left:6px;
 	color:#CCCCCC
 }
-#register form span.input,#login form span.input{
+#register form span.input,#login form span.input,#new_group form span.input{
 	float:left;
 	clear:both;
-	margin-top:20px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 /*小组浏览页面*/
@@ -201,19 +214,21 @@ input[type=submit]{
 	padding:15px 0 15px 0;
 	border-top:1px dashed #CCCCCC;
 }
-.group_list .group_icon{
-	width:55px;
-	height:55px;
+.group_list .group_icon a img{
+	border-radius:3px;
+	width:64px;
+	height:64px;
 	float:left;
 	clear:both;
 }
 .group_list .name_about{
-	width:250px;
+	padding-left:10px;
+	width:240px;
 	height:60px;
 	float:left;
 }
 .name_about .group_name{
-	width:250px;
+	width:230px;
 	word-break:keep-all;/* 不换行 */
 	white-space:nowrap;/* 不换行 */
 	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
@@ -230,8 +245,12 @@ input[type=submit]{
 	小组首页
 */
 #group_info .group_icon,#group_info .group_name{
+	
+	margin-bottom:10px;
 	float:left;
 }
+
+
 #group_info .group_name{
 	word-wrap: break-word;
 	font-size: 20px;
@@ -265,10 +284,16 @@ input[type=submit]{
 	width:97%;
 	word-wrap: break-word;
 	padding: 4px 9px;
-	background: #FFF6ED;
-	border: 1px solid #AAAAAA;
+	background: #ADD8E6;
+	border: 1px solid #CCCCCC;
 	border-width: 1px;
 	border-radius: 4px;
+}
+#group_about,#group_info .group_icon{
+	border-radius: 4px;
+	-webkit-box-shadow:1px 1px 2px #aaa;
+	-moz-box-shadow:1px 1px 2px #aaa;
+	box-shadow:1px 1px 2px #aaa;
 }
 #group_about .top,#group_about .about{
 	margin-top:20px;
@@ -292,7 +317,7 @@ input[type=submit]{
 	float:left;
 }
 #topic_list .topic div a{
-	width:100%;
+	max-width:100%;
 	float:left;
 	word-break:keep-all;/* 不换行 */
 	white-space:nowrap;/* 不换行 */
@@ -316,5 +341,11 @@ input[type=submit]{
 	width:65px;
 	float:left;
 
+}
+.more_topic{
+	width:100%;
+	float:right;
+	text-align:right;
+	padding-bottom:10px;
 }
 

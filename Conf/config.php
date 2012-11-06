@@ -12,7 +12,7 @@ return array(
 	'DB_PORT'=>'3306',
 	'DB_PREFIX'=>'g_',
 	'LOAD_EXT_CONFIG' => 'login,group', // 加载扩展配置文件
-	
+	'URL_MODEL'=>2,
 	'APP_GROUP_LIST' => 'Home,Admin,Group', //项目分组设定
 	'DEFAULT_GROUP'  => 'Home', //默认分组
 );
