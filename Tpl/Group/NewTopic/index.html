@@ -1,19 +1,62 @@
-<div>
-<form action="__URL__/newTopic" method="POST">
-	标题：<input type="text" name="title" /><br/>
-	
-	内容：<br /><textarea name="content"  cols="30" rows="10"></textarea>
-	<div id="topicType" style="position:absolute;right:300px;top:30px;">
-	
-		<volist name="topicType" id="one">
-		<a href="#" class="type" id="{$one.id}">{$one.name}</a><br />
-		</volist>
-	
+
+<include file="./Tpl/Public/header.html" title="发表新话题" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}发表新话题</h1>
+		<div id="new_group">
+			<form action="__URL__/newTopic" method="POST">
+				<span class="input">
+					标题：<input type="text" name="title"/>
+				</span>
+				<span class="input">
+					内容：<textarea name="content"></textarea>
+				</span>
+				<span class="input">
+				帖子分类：
+				<select name="type" >
+					<option value="0" selected="selected">默认分类</option>
+					<volist name="topicType" id="one">
+						<option value="{$one.id}">{$one.name}</option>
+					</volist>
+				</select>
+				</span>
+				<span class="input">
+					<input type="submit" value="发布">
+				</span>
+				<div class="hidden">
+					<input type="hidden" name="group" value="{$groupId}"/>
+					<input type="hidden" name="topicTypeId" value=""/>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="hidden">
-		<input type="hidden" name="group" value="{$groupId}"/>
-		<input type="hidden" name="topicTypeId" value=""/>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+
+
+		<div class="mod" id="db-online-events">
+			<div class="hd">
+				<span class="func">
+					<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+				</span>
+				<h2>
+
+				</h2>
+			</div>
+			<div class="bd">
+			</div>
+		</div>
+		<div class="mod">
+
+		</div>
 	</div>
-	<input type="submit" value="发言"/>
-</form>
 </div>
+<include file="./Tpl/Public/footer.html"  />
+
+
+
+

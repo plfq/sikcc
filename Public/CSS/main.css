@@ -33,7 +33,7 @@ body {
 	width:980px;
 	padding:0 12px;
 	margin:0 auto;
-	background:url(../Image/back_2.png) repeat;
+	/*background:url(../Image/back_2.png) repeat;8*/
 	background-color:#FFFFFF;
 }
 select,input,textarea {
@@ -48,11 +48,11 @@ textarea {
 }
 a {
 	text-decoration:none;
-	color:#007DDB;
+	color:#005EAC;
 }
 a:hover {
 	color:#FFFFFF;
-	background-color:#007DDB;
+	background-color:#005EAC;
 	text-decoration:none;
 	border-radius: 1px;
 }
@@ -147,6 +147,10 @@ h1{
 	float:left;
 
 }
+#content .side{
+	width:340px;
+	float:right;
+}
 
 /*
 footer
@@ -180,7 +184,16 @@ input[type=text]{
 	margin-left:6px;
 	color:#CCCCCC
 }
-#register form span.input,#login form span.input,#new_group form span.input{
+
+
+#register form textarea,#login form textarea,#new_group form textarea,#mine_edit form textarea{
+	border: 1px solid #aaaaaa;
+	border-radius: 3px;
+	width:400px;
+	height:250px;
+	float:right;
+}
+#register form span.input,#login form span.input,#new_group form span.input,#mine_edit form span.input{
 	float:left;
 	clear:both;
 	margin-top:10px;
@@ -284,7 +297,7 @@ input[type=text]{
 	width:97%;
 	word-wrap: break-word;
 	padding: 4px 9px;
-	background: #ADD8E6;
+	background: #E3EEF8;
 	border: 1px solid #CCCCCC;
 	border-width: 1px;
 	border-radius: 4px;
@@ -299,8 +312,63 @@ input[type=text]{
 	margin-top:20px;
 }
 
+/* 小组和用户中心提供服务列表 */
+.group_sever_list,.user_sever_list{
+	margin-top:20px;
+	width:100%;
+	float:left;
+	border-bottom:1px solid #CCCCCC;
+}
+.group_sever_list a,.user_sever_list a{
+	border-style: solid; 
+	border-color:#CCCCCC;
+	border-width: 1px 1px 1px 1px;
+	padding:5px 10px 0 10px;
+	background-color:#DDDDDD;
+	margin-left:10px;
+}
+.group_sever_list a.this_page,.user_sever_list a.this_page{
+	border-bottom-color:#FFFFFF;
+	background-color:transparent;
+	color:#005EAC;
+}
+.group_sever_list a.this_page:hover,.user_sever_list a.this_page:hover{
+	border-bottom-color:#FFFFFF;
+	background-color:transparent;
+	color:#005EAC;
+}
+.group_sever_list a:hover,.user_sever_list a:hover{
+	color:#005EAC;
+	background:#E3EEF8;
+}
+
+/* 小组帖子类型的 */
+.topic_type_list{
+	color:#005EAC;
+}
+.topic_type_list .topic_type_box{
+	
+	display:none;
+	max-width:70px;
+	padding:5px;
+	border-radius:4px;
+	background:#E3EEF8;
+	position:absolute;
+	z-index:5;
+	border-style: solid; 
+	border-color: #CCCCCC;
+	border-width: 1px 1px 1px 1px;
+}
+.topic_type_list:hover .topic_type_box{
+	display:block;
+	
+}
+
+
+
 /*帖子列表的样式*/
 #topic_list {
+	
 	width:100%;
 	float:left;
 	padding:20px 0 20px 0;
@@ -342,10 +410,57 @@ input[type=text]{
 	float:left;
 
 }
+#topic_list .topic .group{
+	
+	width:130px;
+	float:right;
+}
 .more_topic{
 	width:100%;
 	float:right;
 	text-align:right;
 	padding-bottom:10px;
+}
+/* 发表新帖子 */
+.newtopic_type_list{
+
+	max-width:200px;
+	float:right;
+
+	background:red;
+}
+
+/*查看用户首页 侧边栏*/
+.side .userinfo{
+	float:right;
+	width:100%;
+	text-align:right;
+}
+
+.side .userinfo .userhead img{
+	border-radius:8px;
+	-webkit-box-shadow:1px 1px 2px #aaa;
+	-moz-box-shadow:1px 1px 2px #aaa;
+	box-shadow:1px 1px 2px #aaa;
+}
+
+.side .userinfo .signature{
+	width:90%;
+	float:right;
+	text-align:left;
+	padding:4px;
+	font-size:12px;
+	border-style: solid; 
+	border-color:#CCCCCC;
+	border-width: 1px;
+	border-radius:4px;
+	-webkit-box-shadow:1px 1px 2px #aaa;
+	-moz-box-shadow:1px 1px 2px #aaa;
+	box-shadow:1px 1px 2px #aaa;
+}
+.side .userinfo .regdate{
+	margin-top:20px;
+	width:100%;
+	float:right;
 }
 

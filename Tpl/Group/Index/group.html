@@ -23,27 +23,38 @@
 						</p>
 					</div>
 					
+					<div class="group_sever_list">
+						<a href="dsd" class="this_page">话题</a>
+						<a href="dsd">相册</a>
+						<a href="dsd">共享</a>
+					</div>
 					<div id="topic_list">
 					
 					<div class="topic">
-						<div class="title">标题</div>
+						<div class="title"><span class="topic_type_list">所有分类↓ 
+						<span class="topic_type_box">
+							<a href="#" class="topic_type_name">求助咨询</a>
+							<a href="#" class="topic_type_name">讨论发布</a>
+							<a href="#" class="topic_type_name">教程互助问答以及</a>
+							<a href="#" class="topic_type_name">分享资源</a>
+						</span>
+						</span>| 标题</div>
 						<div class="author">作者</div>
 						<div class="retopic">回复</div>
 						<div class="date">最后更新</div>
 					</div>
-					<volist name="topic" id="one">
+ 					<volist name="topic" id="one">
 					<div class="topic">
 						<div class="title"><a href="__GROUP__/Topic/{$one.id}">{$one.title}</a></div>
 						<div class="author"><a href="##">{$one.user_id}</a></div>
 						<div class="retopic">{$one.retopic}</div>
 						<div class="date">{$one.last_time}</div>
 					</div>
-					</volist>
+					</volist> 
 					</div>
 					<div class="more_topic">
 						<a href="#">更多小组话题...</a>
 					</div>
-					
 				</div>
 
 				<!-- 这里是右边的部分 -->

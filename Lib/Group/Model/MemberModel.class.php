@@ -30,6 +30,9 @@ class MemberModel extends Model {
 	 */
 	public function addMember($groupId, $userId = FALSE) {
 		$userId || $userId = USER_ID;
+		if (!$userId) {
+			return FALSE;
+		}
 		$NUM = substr($userId, -1);
 		return M('Member_' . $NUM)->add(array('group_id' => $groupId, 'user_id' => $userId, 'date' => time()));
 	}

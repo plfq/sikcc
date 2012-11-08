@@ -1,0 +1,50 @@
+
+<include file="./Tpl/Public/header.html" title="编辑我的资料" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$user.name}</h1>
+	<div class="user_sever_list">
+		<a href="__URL__/edit" class="this_page">基本资料</a>
+		<a href="__URL__/psw">修改密码</a>
+		<a href="__URL__/head">修改头像</a>
+	</div>
+	<div id="mine_edit">
+	<form action="__URL__/saveEdit" method="POSt" >
+		<span class="input">
+		昵称：<input type="text" name="name" value="{$user.name}"/>
+		</span>
+		<span class="input">
+		签名：<textarea name="signature"  style="height:60px;" >{$user.signature}</textarea>
+		</span>
+		<span class="input">
+			<input type="submit" value="修改"/>
+		</span>
+	</form>
+	
+	
+	</div>
+
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div class="userinfo">
+			<div class="userhead">
+				<img src="__PUBLIC__/HEAD/{$user.head}" alt="{$user.name}" width="100px" height="100px"/>
+			</div><br />
+			<h2>{$user.name}</h2><br />
+			<div class="email">
+			{$user.email}
+			</div><br />
+			▼个性签名
+			<div class="signature">
+				{$user.signature}
+			</div>
+			<div class="regdate">注册时间：{$user.regdate|date='Y-m-d',###}</div>
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

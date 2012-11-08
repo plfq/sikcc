@@ -1,0 +1,45 @@
+
+<include file="./Tpl/Public/header.html" title="{$user.name}" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$user.name}所在的小组</h1>
+
+		<div class="group_list_bygclass">
+			<volist name="group" id="one">
+				<div class="group_list" >
+					<div class="group_icon" title="{$one.name}">
+						<a href="__GROUP__/Index/group/{$one.id}"><img src="__PUBLIC__/ICON/{$one.icon}" alt="{$one.name}" width="64px" height="64px"/></a>
+					</div>
+					<div class="name_about">
+						<div class="group_name">
+							<a href="__GROUP__/Index/group/{$one.id}">{$one.name}</a>
+						</div>
+						<p class="group_about">
+							{$one.about}
+						</p>
+					</div>
+				</div>
+			</volist>
+		</div>
+		__PAGE__
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div class="userinfo">
+			<div class="userhead">
+				<img src="__PUBLIC__/HEAD/{$user.head}" alt="{$user.name}" width="100px" height="100px"/>
+			</div><br />
+			<h2>{$user.name}</h2><br />
+			▼个性签名
+			<div class="signature">
+				{$user.signature}
+			</div>
+			<div class="regdate">注册时间：{$user.regdate|date='Y-m-d',###}</div>
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

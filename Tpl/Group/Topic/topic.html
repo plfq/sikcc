@@ -84,7 +84,7 @@
 		</style>
 		<div style="width:100%;float:left;padding-bottom:15px;">
 			<a class="head" href="###">
-				<img src="__PUBLIC__/HEAD/head.png" alt="作者" />
+				<img src="__PUBLIC__/HEAD/head.png" alt="作者" width="64px" height="64px"/>
 			</a>
 			<p class="speech">
 
@@ -96,7 +96,7 @@
 		<volist name="retopic" id="one">
 			<div style="width:100%;float:left;padding-bottom:15px;">
 				<a class="head" href="###">
-					<img src="__PUBLIC__/HEAD/head.png" alt="作者" />
+					<img src="__PUBLIC__/HEAD/head.png" alt="作者" width="64px" height="64px"/>
 				</a>
 				<p class="speech">
 					<span class="topic_date">发表于：2012niana <a href="##">作者</a></span> <br />
@@ -110,10 +110,10 @@
 		<!-- At.js-->
 
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/JS/At/css/jquery.atwho.css"/>
-        <script type="text/javascript" src="__PUBLIC__/JS/jquery.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/JS/At/js/jquery.caret.js" ></script>
-        <script type="text/javascript" src="__PUBLIC__/JS/At/js/jquery.atwho.js"></script>
-        <script type="text/javascript">
+        <script  src="__PUBLIC__/JS/jquery.js"></script>
+        <script  src="__PUBLIC__/JS/At/js/jquery.caret.js" ></script>
+        <script  src="__PUBLIC__/JS/At/js/jquery.atwho.js"></script>
+        <script >
 			$(function() {
 				emojis = [
 					"奔跑", "病了", "不爽", "打地鼠", "得瑟", "得意", "逗上下", "逗转圈", "逗左右", "都不给", "奋斗", "滚过", "汗", "喝奶", "狠", "划", "惊", "狂欢", "懒腰", "泪目", "求表扬", "蠕过", "撒欢", "失落", "刷牙", "睡觉", "躺中枪", "讨厌", "跳跃", "听歌", "吐", "问号", "无聊", "无语", "新建文件夹", "转体", "转头", "走", "喵", "喵喵"
@@ -122,19 +122,19 @@
 					return {'id': i, 'key': ":" + value + ":", 'name': value}
 				})
 
-				$("textarea#inputer").atWho("@", {choose: 'data-choose',tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>",callback:function(query, callback) {
+				$("textarea#inputer").atWho("@", {choose: 'data-choose', tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>", callback: function(query, callback) {
 
-					var url = "http://127.0.0.1/Index/index";
-					param = {'q': query};
+						var url = "http://127.0.0.1/Index/index";
+						param = {'q': query};
 
-					$.getJSON(url, param, function(data) {
+						$.getJSON(url, param, function(data) {
 
-						names = data.data;
-						names = $.map(names, function(value, i) {
-							return {'id': i, 'name': value, 'email': value + "@email.com"};
+							names = data.data;
+							names = $.map(names, function(value, i) {
+								return {'id': i, 'name': value, 'email': value + "@email.com"};
+							});
+							callback(names);
 						});
-						callback(names);
-					});
 					}
 					/**tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>",
 				 'data': data,

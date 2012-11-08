@@ -1,0 +1,50 @@
+
+<include file="./Tpl/Public/header.html" title="{$group.name}" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+
+		<div id="topic_list">
+
+			<div class="topic">
+
+				<div class="title">标题</div>
+				<div class="retopic">回复</div>
+				<div class="date">最后更新</div>
+				<div class="group">小组</div>
+			</div>
+			<volist name="topic" id="one">
+				<div class="topic">
+					<div class="title"><a href="__GROUP__/Topic/{$one.id}">{$one.title}</a></div>
+					<div class="retopic">{$one.retopic}</div>
+					<div class="date">{$one.last_time}</div>
+					<div class="group"><a href="#">{$one.group_name}</a></div>
+				</div>
+			</volist> 
+		</div>
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+
+
+		<div class="mod" id="db-online-events">
+			<div class="hd">
+				<span class="func">
+					<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+				</span>
+				<h2>
+
+				</h2>
+			</div>
+			<div class="bd">
+			</div>
+		</div>
+		<div class="mod">
+
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

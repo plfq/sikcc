@@ -15,7 +15,6 @@ class IndexAction extends Action {
 		if (USER_ID) {
 			redirect(U(__APP__)); //这里的U方法利用一个巧合，其他地方使用就是错误的
 		} else {
-
 			redirect(U('Group/explore'));
 		}
 	}

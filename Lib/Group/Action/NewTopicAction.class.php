@@ -20,10 +20,11 @@ class NewTopicAction extends Action {
 	 * 这个调用模版
 	 */
 	public function index() {
-		$groupId = $this->_get('group');
+		$groupId = $this->_param('3');
 		$topicType = D('GroupTopicType')->getTopicType($groupId);
 		$this->assign('topicType', $topicType);
-		$this->assign('groupId', $groupId);
+		$group = M('Group')->find(array("id"=>$groupId));
+		$this->assign('group', $group);
 		$this->display();
 	}
 
