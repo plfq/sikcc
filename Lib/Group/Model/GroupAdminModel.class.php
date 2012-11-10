@@ -13,7 +13,7 @@ class GroupAdminModel extends Model {
             return FALSE;
         }
         $userId || $userId = USER_ID;
-        return $this->find(array('group_id' => $groupId, 'user_id' => $userId));
+        return $this->where(array('group_id' => $groupId, 'user_id' => $userId))->find();
     }
 
 }

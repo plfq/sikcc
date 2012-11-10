@@ -1,12 +1,66 @@
-<div>
-    <form action="__URL__/saveAdvEdit/group/{$group.id}" method="POST">
-        小组名字：<input type="text" name="name" value="{$group.name}"/><br/>
 
-        <volist name="groupTopicType" id="typeName">
-            帖子分类：<input type="text" name="typeName[{$i}]" value="{$typeName.name}"/><br/>
-            <input type="hidden" name="typeNameId[{$i}]" value="{$typeName.id}">
-        </volist>
-        <input type="hidden" name="groupId" value="{$group.id}"/>
-        <input type="submit" value="保存"/>
-    </form>
+<include file="./Tpl/Public/header.html" title="小组高级设置" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}</h1>
+	<div class="group_sever_list">
+		<a href="__URL__/edit/{$group.id}" >基本资料</a>
+		<a href="__URL__/advEdit/{$group.id}" class="this_page">高级管理</a>
+		<a href="__URL__/icon/{$group.id}">修改图标</a>
+	</div>
+	<div id="group_edit">
+	<form action="__URL__/saveAdvEdit" method="POST" >
+		
+		<span class="input">
+		加入小组审核：<input type="radio" name="type" value="d" checked="checked"/>无需审核
+		<input type="radio" name="type" value="d"/>管理员审核
+		<input type="radio" name="type" value="d"/>邀请码 <span class="tips">暂时无效</span>
+		</span>
+		<span class="input">
+			违禁词：<input type="text" name="keywords"/> <span class="tips">多个词之间空格分开(暂时不可用)</span>
+		</span>
+		<span class="input">
+			小组话题分类1：<input type="text"  name="typeName[1]" value="{$groupTopicType.0.name}" />
+			<span class="tips">留空即删除</span>
+			<input type="hidden" name="typeNameId[1]" value="{$groupTopicType.0.id}">
+		</span>		
+		<span class="input">
+			小组话题分类2：<input type="text"  name="typeName[2]" value="{$groupTopicType.1.name}" />
+			<span class="tips">留空即删除</span>
+			<input type="hidden" name="typeNameId[2]" value="{$groupTopicType.1.id}">
+		</span>		
+		<span class="input">
+			小组话题分类3：<input type="text"  name="typeName[3]" value="{$groupTopicType.2.name}" />
+			<span class="tips">留空即删除</span>
+			<input type="hidden" name="typeNameId[3]" value="{$groupTopicType.2.id}">
+		</span>		
+		<span class="input">
+			小组话题分类4：<input type="text"  name="typeName[4]" value="{$groupTopicType.3.name}" />
+			<span class="tips">留空即删除</span>
+			<input type="hidden" name="typeNameId[4]" value="{$groupTopicType.3.id}">
+		</span>		
+
+		
+
+		<span class="input">
+			<input type="submit" value="修改"/>
+		</span>
+		<input type="hidden" name="group" value="{$group.id}"/>
+	</form>
+	
+	
+	</div>
+
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div >
+		这里是小组高级设置页面
+		</div>
+	</div>
 </div>
+<include file="./Tpl/Public/footer.html"  />

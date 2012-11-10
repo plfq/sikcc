@@ -148,7 +148,7 @@ h1{
 
 }
 #content .side{
-	width:340px;
+	top:20px;
 	float:right;
 }
 
@@ -156,7 +156,8 @@ h1{
 footer
 */
 #footer{
-	margin-top:30px;
+	margin-top:50px;
+	padding-top:10px;
 	width:100%;
 	clear:both;
 	border-top:1px dashed silver
@@ -192,6 +193,22 @@ input[type=text]{
 	width:400px;
 	height:250px;
 	float:right;
+}
+
+form textarea{
+	border: 1px solid #aaaaaa;
+	border-radius: 3px;
+	width:400px;
+	height:250px;
+	float:right;
+}
+
+form span.input{
+
+	float:left;
+	clear:both;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 #register form span.input,#login form span.input,#new_group form span.input,#mine_edit form span.input{
 	float:left;
@@ -364,6 +381,26 @@ input[type=text]{
 	
 }
 
+/* 表情盒子 */
+.smile_span .smile_box{
+	display:none;
+}
+
+.smile_span .smile_box{
+	
+	width:391px; 
+	height:69px;
+	position:absolute;
+	z-index:5;
+	border-style: solid; 
+	border-color: #CCCCCC;
+	border-width: 1px 1px 1px 1px;
+}
+.smile_span .smile_box img{
+	border-style: solid; 
+	border-color: #CCCCCC;
+	border-width: 0 1px 1px 0;
+}
 
 
 /*帖子列表的样式*/
@@ -433,11 +470,12 @@ input[type=text]{
 /*查看用户首页 侧边栏*/
 .side .userinfo{
 	float:right;
-	width:100%;
+	width:340px;
 	text-align:right;
 }
 
 .side .userinfo .userhead img{
+	margin-top:10px;
 	border-radius:8px;
 	-webkit-box-shadow:1px 1px 2px #aaa;
 	-moz-box-shadow:1px 1px 2px #aaa;

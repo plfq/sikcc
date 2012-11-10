@@ -37,6 +37,7 @@ class LoginAction extends Action {
 			switch ($user) {
 				case -1:
 					$notice = '数据不合法！';
+					$HTTP_REFERER = U('Home/Index/index');//防止死循环
 					break;
 				case -2:
 					$notice = '密码不正确！';

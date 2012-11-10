@@ -11,9 +11,9 @@ class PeopleAction extends Action {
 	 * 查看用户资料
 	 */
 	public function index() {
-		$userId = $this->_param(3);
-		$user = M('User')->find(array('id' => $userId));
-		$user = array_merge($user, M('UserEx')->find(array('user_id' => $userId)));
+		$userId = $this->_param(2);
+		$user = M('User')->where(array('id' => $userId))->find();
+		$user = array_merge($user, M('UserEx')->where(array('user_id' => $userId))->find());
 		$myGroup = D('Group/MyGroup')->myGroup($userId, TRUE, 'id');
 		$groupObj = M('Group');
 		$aboutObj = M('GAbout');

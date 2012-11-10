@@ -13,7 +13,7 @@ class IndexAction extends Action {
 	public function index() {
 
 		if (USER_ID) {
-			redirect(U(__APP__)); //这里的U方法利用一个巧合，其他地方使用就是错误的
+			redirect(U('Home/Index/index')); //这里的U方法利用一个巧合，其他地方使用就是错误的
 		} else {
 			redirect(U('Group/explore'));
 		}
@@ -24,7 +24,7 @@ class IndexAction extends Action {
 	 */
 	public function group() {
 		$groupId = $this->_param(3);
-		$group = D('Group')->find(array('id' => $groupId));
+		$group = D('Group')->where(array('id' => $groupId))->find();
 		$groupAbout = M('GAbout')->where(array('group_id' => $groupId))->getField('about');
 		$isMember = D('Member')->is_member($groupId);
 		$master['name'] = M('User')->where(array('id' => $group['master_id']))->getField('name');

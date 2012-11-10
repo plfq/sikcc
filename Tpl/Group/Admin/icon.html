@@ -1,0 +1,42 @@
+
+<include file="./Tpl/Public/header.html" title="小组高级设置" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}</h1>
+	<div class="group_sever_list">
+		<a href="__URL__/edit/{$group.id}" >基本资料</a>
+		<a href="__URL__/advEdit/{$group.id}">高级管理</a>
+		<a href="__URL__/icon/{$group.id}"  class="this_page">修改图标</a>
+	</div>
+	<div id="group_edit">
+	<form action="__URL__/editIcon" method="POST" enctype="multipart/form-data">
+
+		<span class="input">
+			旧图标：<img src="__PUBLIC__/ICON/{$group.icon}" alt="旧图标" width="100px" height="100px"/>
+		</span>
+		<span class="input">
+			新图标：<input type="file" name="newhead">
+		</span>
+		<span class="input">
+			<input type="submit" value="上传"/>
+		</span>
+
+		<input type="hidden" name="group" value="{$group.id}"/>
+	</form>
+	
+	
+	</div>
+
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div >
+		这里是小组高级设置页面
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

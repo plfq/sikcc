@@ -16,7 +16,7 @@ class UserModel extends Model {
 	public function isNotSay($user_id, $info = FALSE) {
 		(bool) $r = D('UserEx')->getField(array('user_id' => $user_id), 'is_not_say');
 		if ($info && $r) {
-			$r = D('NotSay')->find(array('user_id' => $user_id));
+			$r = D('NotSay')->where(array('user_id' => $user_id))->find();
 		}
 		return $r;
 	}

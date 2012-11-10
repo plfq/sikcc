@@ -12,7 +12,7 @@ class GroupTopicTypeModel extends Model {
 	 * @param type $groupId
 	 */
 	public function getTopicType($groupId) {
-		$type = $this->find(array('group_id' => $groupId));
+		$type = $this->where(array('group_id' => $groupId))->find();
 		$topicTypeNameObj = M('GroupTopicTypeName');
 		$typeName = array();
 		for ($i = 1; $i <= 4; $i++) {
@@ -35,7 +35,11 @@ class GroupTopicTypeModel extends Model {
 		$data = array();
 
 		foreach ($typeName as $key => $value) {
-			$value = substr($value, 0, 21); //限制长度
+			if (!$value) {
+				$data['topic_type_' . $NUM] = 0;
+				continue;
+			}
+			$value = substr($value, 0, 15); //限制长度
 			if ($NUM > 4)
 				break;
 			if ($typeId[$key]) {

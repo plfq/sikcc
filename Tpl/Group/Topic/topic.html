@@ -116,46 +116,62 @@
         <script >
 			$(function() {
 				emojis = [
-					"奔跑", "病了", "不爽", "打地鼠", "得瑟", "得意", "逗上下", "逗转圈", "逗左右", "都不给", "奋斗", "滚过", "汗", "喝奶", "狠", "划", "惊", "狂欢", "懒腰", "泪目", "求表扬", "蠕过", "撒欢", "失落", "刷牙", "睡觉", "躺中枪", "讨厌", "跳跃", "听歌", "吐", "问号", "无聊", "无语", "新建文件夹", "转体", "转头", "走", "喵", "喵喵"
+					"奔跑", "病了", "不爽", "打地鼠", "得瑟", "得意", "逗上下", "逗转圈", "逗左右", "都不给", "奋斗", "滚过", "汗", "喝奶", "狠", "划", "惊", "狂欢", "懒腰", "泪目", "求表扬", "蠕过", "撒欢", "失落", "刷牙", "睡觉", "躺中枪", "讨厌", "跳跃", "听歌", "吐", "问号", "无聊", "无语", "转体", "转头", "走", "喵", "喵喵"
 						]
 				emojis = $.map(emojis, function(value, i) {
 					return {'id': i, 'key': ":" + value + ":", 'name': value}
 				})
 
-				$("textarea#inputer").atWho("@", {choose: 'data-choose', tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>", callback: function(query, callback) {
+				$("textarea#inputer").atWho("@", {choose: 'data-choose', tpl: "<li id='${id}' data-value='${name}' data-choose='${name}[${id}]'><img src='/Public/HEAD/${head}'  height='22' width='22' />${name} <small title='${signature}'>${signature}</small></li>", callback: function(query, callback) {
 
-						var url = "http://127.0.0.1/Index/index";
+						var url = "/At/index";
 						param = {'q': query};
 
 						$.getJSON(url, param, function(data) {
 
-							names = data.data;
+							names = data;
 							names = $.map(names, function(value, i) {
-								return {'id': i, 'name': value, 'email': value + "@email.com"};
+								return {'id': value.id, 'name': value.name, 'head': value.head,'signature':value.signature};
 							});
 							callback(names);
 						});
 					}
-					/**tpl: "<li id='${id}' data-value='${name}' data-choose='${email}'>${name} <small>${email}</small></li>",
-				 'data': data,
-				 choose: 'data-choose'*/
 				})
 						.atWho(":", {tpl: "<li data-value='${key}'><img src='/Public/Smile/${name}.gif'  height='22' width='22' />${name}</li>", 'data': emojis, choose: "data-value", display_flag: false,
+				})
+						.atWho("：", {tpl: "<li data-value='${key}'><img src='/Public/Smile/${name}.gif'  height='22' width='22' />${name}</li>", 'data': emojis, choose: "data-value", display_flag: false,
 				})
 
 			});
         </script>
+		
+		<script>
+		function showSmileBox(){
+		$(".smile_box").toggle()
+		}
+		function checkSmile(obj){
+			data = ":"+$(obj).attr("alt")+": ";
+			$("#inputer").append(data);
+			$(".smile_box").hide();
+		}
+
+		</script>
 		<!-- /At.js -->
 		<form action="__GROUP__/Retopic/newRetopic" class="retopic" method="POST">
 			<textarea name="content" id="inputer" class="new_retopic"></textarea>
 			<div class="textarea_tool">
-				<input type="button" value=": )" title="添加表情"/>
-				<input type="button" value="@" title="@朋友"/>
+				<span class="smile_span">
+				<input type="button" value=": )" title="添加表情" onclick="showSmileBox()"/>
+				<div class="smile_box" >
+				
+<img src="/Public/Smile/奔跑.gif" alt="奔跑" title="奔跑" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/病了.gif" alt="病了" title="病了" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/不爽.gif" alt="不爽" title="不爽" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/打地鼠.gif" alt="打地鼠" title="打地鼠" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/得瑟.gif" alt="得瑟" title="得瑟" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/得意.gif" alt="得意" title="得意" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/逗上下.gif" alt="逗上下" title="逗上下" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/逗转圈.gif" alt="逗转圈" title="逗转圈" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/逗左右.gif" alt="逗左右" title="逗左右" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/都不给.gif" alt="都不给" title="都不给" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/奋斗.gif" alt="奋斗" title="奋斗" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/滚过.gif" alt="滚过" title="滚过" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/汗.gif" alt="汗" title="汗" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/喝奶.gif" alt="喝奶" title="喝奶" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/狠.gif" alt="狠" title="狠" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/划.gif" alt="划" title="划" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/惊.gif" alt="惊" title="惊" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/狂欢.gif" alt="狂欢" title="狂欢" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/懒腰.gif" alt="懒腰" title="懒腰" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/泪目.gif" alt="泪目" title="泪目" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/求表扬.gif" alt="求表扬" title="求表扬" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/蠕过.gif" alt="蠕过" title="蠕过" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/撒欢.gif" alt="撒欢" title="撒欢" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/失落.gif" alt="失落" title="失落" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/刷牙.gif" alt="刷牙" title="刷牙" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/睡觉.gif" alt="睡觉" title="睡觉" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/躺中枪.gif" alt="躺中枪" title="躺中枪" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/讨厌.gif" alt="讨厌" title="讨厌" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/跳跃.gif" alt="跳跃" title="跳跃" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/听歌.gif" alt="听歌" title="听歌" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/吐.gif" alt="吐" title="吐" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/问号.gif" alt="问号" title="问号" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/无聊.gif" alt="无聊" title="无聊" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/无语.gif" alt="无语" title="无语" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/转体.gif" alt="转体" title="转体" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/转头.gif" alt="转头" title="转头" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/走.gif" alt="走" title="走" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/喵.gif" alt="喵" title="喵" class="smile" onclick="checkSmile(this);"/><img src="/Public/Smile/喵喵.gif" alt="喵喵" title="喵喵" class="smile" onclick="checkSmile(this);"/>
+				</div>
+				</span>输入@或 : 试试
 				<input type="submit" id="retopic_submit"  value="贴上去"></input>
 			</div>
 			<input type="hidden" name="topic_id" value="{$topic.id}"/>
 		</form>
-
+		<div style="width:100%;height:80px;float:left;"></div>
 	</div>
 
 	<!-- 这里是右边的部分 -->

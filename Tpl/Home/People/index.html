@@ -34,10 +34,18 @@
 				<img src="__PUBLIC__/HEAD/{$user.head}" alt="{$user.name}" width="100px" height="100px"/>
 			</div><br />
 			<h2>{$user.name}</h2><br />
+			<if condition="$user['signature']">
 			▼个性签名
 			<div class="signature">
 				{$user.signature}
 			</div>
+			</if>
+			<if condition="$user['qr']">
+			<div class="userhead">
+				<img src="__PUBLIC__/HEAD/{$user.qr}" alt="我的二维码" width="80px" height="80px"/>
+			</div>
+			Ta的二维码▲
+			</if>
 			<div class="regdate">注册时间：{$user.regdate|date='Y-m-d',###}</div>
 		</div>
 	</div>

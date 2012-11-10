@@ -23,7 +23,7 @@ class NewTopicAction extends Action {
 		$groupId = $this->_param('3');
 		$topicType = D('GroupTopicType')->getTopicType($groupId);
 		$this->assign('topicType', $topicType);
-		$group = M('Group')->find(array("id"=>$groupId));
+		$group = M('Group')->where(array("id"=>$groupId))->find();
 		$this->assign('group', $group);
 		$this->display();
 	}

@@ -19,7 +19,7 @@ class MemberModel extends Model {
 		if (!$userId)
 			return FALSE;
 		$NUM = substr($userId, -1);
-		return M('Member_' . $NUM)->find(array('group_id' => $groupId, 'user_id' => $userId));
+		return M('Member_' . $NUM)->where(array('group_id' => $groupId, 'user_id' => $userId))->find();
 	}
 
 	/**

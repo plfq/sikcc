@@ -25,7 +25,7 @@ class LoginModel extends Model {
         }
         $userObj = D('User');
         $userObj->create($data);
-        $user = $userObj->where($data)->find($data);
+        $user = $userObj->where($data)->find();
         //如果登录失败，检查原因
         if (!$user) {
             $r = $userObj->where(array('email' => $data['email']))->getField('id');

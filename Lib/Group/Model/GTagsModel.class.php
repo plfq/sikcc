@@ -8,6 +8,35 @@
 class GTagsModel extends Model {
 
 	/**
+	 * 获取小组的所有标签
+	 * @param type $groupId
+	 */
+	public function getGroupTags($groupId, $type = "array") {
+		$tags = M('GroupTags')->where(array('group_id' => $groupId))->limit('5')->select();
+		$tagsObj = M('GTags');
+		if ($type == 'array') {
+			foreach ($tags as &$value) {
+				$value['name'] = $tagsObj->where(array('id' => $value['tag_id']))->getField('name');
+			}
+			return $tags;
+		} elseif ($type == 'string') {
+			$string = '';
+			foreach ($tags as $value) {
+				$string .= $tagsObj->where(array('id' => $value['tag_id']))->getField('name') . ' ';
+			}
+			return trim($string);
+		}
+	}
+
+	/**
+	 * 获取某个标签下的所有小组
+	 * @param type $tag
+	 */
+	public function getTagGroups($tag) {
+		
+	}
+
+	/**
 	 * 处理小组相关的标签，
 	 * @param type $tags 保存标签的数组
 	 * @param type $groupId 小组ID
@@ -15,7 +44,6 @@ class GTagsModel extends Model {
 	 */
 	public function saveTags($tags, $groupId) {
 		$tags = array_splice(array_filter($tags), 0, 5);
-
 		$ids = $this->addTags($tags);
 		$r = $this->tags2group($groupId, $ids);
 		return $r;

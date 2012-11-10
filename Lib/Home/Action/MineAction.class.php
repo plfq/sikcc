@@ -26,8 +26,8 @@ class MineAction extends Action {
 	 */
 	public function edit() {
 		$userId = USER_ID;
-		$user = M('User')->find(array('id' => $userId));
-		$user = array_merge($user, M('UserEx')->find(array('user_id' => $userId)));
+		$user = M('User')->where(array('id' => $userId))->find();
+		$user = array_merge($user, M('UserEx')->where(array('user_id' => $userId))->find());
 		$this->assign('user', $user);
 		$this->display();
 	}
@@ -51,8 +51,8 @@ class MineAction extends Action {
 	 */
 	public function psw() {
 		$userId = USER_ID;
-		$user = M('User')->find(array('id' => $userId));
-		$user = array_merge($user, M('UserEx')->find(array('user_id' => $userId)));
+		$user = M('User')->where(array('id' => $userId))->find();
+		$user = array_merge($user, M('UserEx')->where(array('user_id' => $userId))->find());
 		$this->assign('user', $user);
 		$this->display();
 	}
@@ -78,8 +78,8 @@ class MineAction extends Action {
 	 */
 	public function head() {
 		$userId = USER_ID;
-		$user = M('User')->find(array('id' => $userId));
-		$user = array_merge($user, M('UserEx')->find(array('user_id' => $userId)));
+		$user = M('User')->where(array('id' => $userId))->find();
+		$user = array_merge($user, M('UserEx')->where(array('user_id' => $userId))->find());
 		$this->assign('user', $user);
 		$this->display();
 	}
@@ -107,8 +107,8 @@ class MineAction extends Action {
 		}
 		$headNew = substr($userId, -2) . '/' . $userId . '_new' . '.' . reset($info)['extension'];
 		$userObj = M('User');
-		$user = $userObj->find(array('id' => $userId));
-		$user = array_merge($user, M('UserEx')->find(array('user_id' => $userId)));
+		$user = $userObj->where(array('id' => $userId))->find();
+		$user = array_merge($user, M('UserEx')->where(array('user_id' => $userId))->find());
 		$this->assign('user', $user);
 		$this->assign('headNew', $headNew);
 		$this->display();
@@ -132,27 +132,56 @@ class MineAction extends Action {
 		$x = imagesx($im); //获取图片的宽
 		$y = imagesy($im); //获取图片的高
 
-		if ($x > $y) {//图片宽大于高
-			$width = ($width / 150) * $x; //需要截取的宽度
-			$height = $width;
-			$sx = abs(($y - $x) / 2);
-			$sy = 0;
-			$thumbw = $y;
-			$thumbh = $y;
-		} else {//图片高大于等于宽
-			$sy = abs(($x - $y) / 2);
-			$sx = 0;
-			$thumbw = $x;
-			$thumbh = $x;
-		}
+		$bilu = ($x / 150);
+		$width = $bilu * $width; //需要截取的宽度
+		$height = $width;
+		$x1 = $bilu * $x1;
+		$y1 = $bilu * $y1;
 		if (function_exists("imagecreatetruecolor"))
 			$dim = imagecreatetruecolor(100, 100); // 创建目标图gd2
 		else
 			$dim = imagecreate(100, 100); // 创建目标图gd1
 
-		imagecopyresized($dim, $im, 0, 0, $sx, $sy, 100, 100, $thumbw, $thumbh);
-		header("Content-type: image/jpeg");
-		imagejpeg($dim);
+		if ($x <= 20 || $y <= 20)//如果宽或者是长小于20像素就直接全部拉伸到100
+			imagecopyresized($dim, $im, 0, 0, 0, 0, 100, 100, $x, $y);
+		else
+			imagecopyresized($dim, $im, 0, 0, $x1, $y1, 100, 100, $width, $height);
+		$savePath = str_replace('_new', '', $image);
+		imagejpeg($dim, $savePath);
+		$rUN = unlink($image);
+		$rADD = M('User')->where(array('id' => USER_ID))->save(array('head' => ltrim($savePath, './Public/HEAD/')));
+		if (!$rADD) {
+			$this->error('数据库操作报错!');
+		}
+//		elseif (!$rUN) {
+//			$this->error('删除临时文件出错！');
+//		}
+		$this->success('头像已经保存!', U('index'));
+	}
+
+	/**
+	 * 生成二维码玩玩
+	 */
+	public function creatQR() {
+		$userId = USER_ID;
+		$user = M('User')->where(array('id' => $userId))->find();
+		$data = 'ID:' . $user['id'] . '昵称:' . $user['name'] . '签名:' . $user['signature'];
+		$url = 'https://chart.googleapis.com/chart?cht=qr&chld=H&chs=100x100&chl=' . $data;
+		$qr = file_get_contents($url);
+		$savePath = substr($userId, -2) . '/' . $userId . '_qr.png';
+
+
+		$rIMG = file_put_contents('./Public/HEAD/' . $savePath, $qr);
+		$rSAVE = M('User')->where(array('id' => $userId))->save(array('qr' => $savePath));
+		if (!$rIMG) {
+			$this->error('图片保存出错！');
+		}
+//		elseif (!$rSAVE) {
+//			$this->error('数据库报错了！');
+//		}
+		$url = $_SERVER['HTTP_REFERER'];
+		$url || $url = U('index');
+		$this->redirect($url);
 	}
 
 }
