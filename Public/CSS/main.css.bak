@@ -512,20 +512,10 @@ form span.input{
 .linkman_list .linkman{
 	float:left;
 	width:100%;
-	margin:3px 0 3px 0;
 }
 .linkman_list .this_linkman{
-	color:#FFFFFF;
+	color:#FFFFF;
 	float:left;
 	width:100%;
-	margin:3px 0 3px 0;
 	background:#005EAC;
 }
-form.send_message textarea{
-	width:450px;
-	height:150px;
-}
-form.send_message span.input{
-	float:right;
-}
-
