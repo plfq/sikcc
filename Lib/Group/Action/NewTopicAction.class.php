@@ -41,7 +41,7 @@ class NewTopicAction extends Action {
 		if ($r) {
 			$this->success('发帖成功！', U('Group/Index/group', 'group=' . $groupId));
 		} else {
-			$this->success('发帖失败！');
+			$this->error('发帖失败！');
 		}
 	}
 

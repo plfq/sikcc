@@ -1,0 +1,67 @@
+
+<include file="./Tpl/Public/header.html" title="修改账号密码" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}</h1>
+	<div class="group_sever_list">
+		<a href="__URL__/edit/{$group.id}" >基本资料</a>
+		<a href="__URL__/keyWords/{$group.id}" class="this_page">违禁词汇</a>
+		<a href="__URL__/advEdit/{$group.id}" >高级管理</a>
+		<a href="__URL__/icon/{$group.id}">修改图标</a>
+		<a href="__URL__/log/{$group.id}" >操作日志</a>
+	</div>
+	
+	<script type="text/javascript">
+	function newkeyword(){
+		var newword_val = $("[name='newword']").val();
+		var groupId = $("[name='group']").val();
+		$.getJSON("/Group/Admin/newWord", {newWord:newword_val,group:groupId}, function(json){
+				alert(json.info);
+		});
+	}
+	function delword(obj){
+		var word_id = $(obj).attr("data");
+		var groupId = $("[name='group']").val();
+		$.getJSON("/Group/Admin/delWord", {wordId:word_id,group:groupId}, function(json){
+				alert(json.info);
+		});
+	}
+	</script>
+	<div id="group_edit">
+	
+	<form action="__URL__/saveEdit" method="POSt" >
+		<span class="input">
+		添加新的关键词
+		</span>
+		<span class="input">
+			<input type="text" name="newword"/><input type="button" value="添加" onclick="newkeyword();"/>
+		</span>
+		
+		<input type="hidden" name="group" value="{$group.id}"/>
+		<span class="input">
+		已有的关键词
+		</span>
+		<volist name="keyWords" id="one">
+		<span class="input">
+			<input type="text" value="{$one.word}" readonly="readonly"/> <a href="#" data="{$one.id}" onclick="delword(this);">删除</a>
+		</span>
+		</volist>
+	
+	</form>
+	
+	
+	</div>
+
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div >
+		这里是小组管理页面
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

@@ -382,8 +382,7 @@ abstract class Action {
             // 默认操作成功自动返回操作前页面
             if(!$this->get('jumpUrl')) $this->assign("jumpUrl",$_SERVER["HTTP_REFERER"]);
             $this->display(C('TMPL_ACTION_SUCCESS'));
-			// 中止执行  避免出错后继续执行12.10.05添加
-            exit ;
+			
         }else{
             $this->assign('error',$message);// 提示信息
             //发生错误时候默认停留5秒

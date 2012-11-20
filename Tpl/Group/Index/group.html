@@ -2,6 +2,17 @@
 			<include file="./Tpl/Public/header.html" title="{$group.name}" />
 			<!-- 这里是主体部分content -->
 			<div id="content">
+			<script type="text/javascript">
+			function userandgroup(obj){
+			
+				var groupId = $(obj).attr('data_id');
+				var type = $(obj).attr('data_type');
+				var url  = "/Group/Member/"+type;
+				$.getJSON(url, {group:groupId}, function(json){
+					alert(json.info);
+				});
+			}
+			</script>
 			
 				<!-- 这里是左边的主体 -->
 				<div class="main">
@@ -9,7 +20,15 @@
 					<img class="group_icon" src="__PUBLIC__/ICON/{$group.icon}" alt="{$group.name}" width="64px" height="64px"/>
 					<h1 class="group_name">{$group.name}</h1>
 					<div id="join">
-						<a href="">加入小组</a>
+					<if condition="$isMember==1">
+						<a href="#" data_id="{$group.id}" onclick="userandgroup(this)" data_type="join">加入小组</a>
+					<elseif condition="$isMember==2" />	
+						<a href="#" data_id="{$group.id}" onclick="userandgroup(this)" data_type="quit">退出小组</a>
+					<elseif condition="$isMember==3" />	
+						<a href="#" data_id="{$group.id}" onclick="userandgroup(this)" data_type="cancel">取消申请</a>
+					<else />
+						<a href="#" data_id="{$group.id}" >加入小组</a>
+					</if>
 					</div>
 					
 					</div>

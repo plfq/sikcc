@@ -1,0 +1,113 @@
+
+<include file="./Tpl/Public/header.html" title="{$topic.title}" />
+<!-- 这里是主体部分content -->
+<div id="content">
+	<script type="text/javascript">
+	
+		function alert(json){
+			$.jBox.tip(json.info,'info');
+		}
+		function doadmin(obj){
+			var userId=$(obj).attr("data_id");
+			var action = $(obj).attr("data_action");
+			var groupId = $(obj).attr("data_group");
+			url="/Group/MemberAdmin/"+action;
+			$.getJSON(url,{group:groupId,user:userId}, function(json){
+				alert(json);
+			});
+		}
+	
+	</script>
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}成员</h1>
+		<!-- 组长的 -->
+		
+		<div class="member_list"><h2>组长：</h2></div>
+		<div class="member_list">
+			<div class="member">
+				<div class="mouseover">
+				<a class="head" href="#">
+					<img src="__PUBLIC__/HEAD/{$master.head}" alt="{$master.name}" width="64px" height="64px" class="userhead"/>
+				</a>
+				<span class="tool">
+
+				</span>
+				</div>
+				<div class="name">
+				<a  href="#">{$master.name}</a>
+				</div>
+			</div>
+		</div>
+		<div class="member_list"><h2>管理员：</h2></div>
+		<div class="member_list">
+		<volist name="admin" id="one">
+			<div class="member">
+				<div class="mouseover">
+				<a class="head" href="#">
+					<img src="__PUBLIC__/HEAD/{$one.head}" alt="{$one.name}" width="64px" height="64px" class="userhead"/>
+				</a>
+				<span class="tool">
+				<if condition="$permissions gt 1">
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="down" onclick="doadmin(this);">↓</a>
+				</if>
+				<if condition="$permissions gt 0">
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="delete" onclick="doadmin(this);">K</a>
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="forbid" onclick="doadmin(this);">X</a>
+				</if>
+				</span>
+				</div>
+				<div class="name">
+				<a  href="#">{$one.name}</a>
+				</div>
+			</div>
+		</volist>
+		</div>
+		<div class="member_list"><h2>成员：</h2></div>
+		<div class="member_list">
+		<volist name="list" id="one">
+			<div class="member">
+				<div class="mouseover">
+				<a class="head" href="#">
+					<img src="__PUBLIC__/HEAD/{$one.head}" alt="{$one.name}" width="64px" height="64px" class="userhead"/>
+				</a>
+				<span class="tool">
+				<if condition="$permissions gt 1">
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="up" onclick="doadmin(this);">↑</a>
+				</if>
+				<if condition="$permissions gt 0">
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="delete" onclick="doadmin(this);">K</a>
+				<a href="#" data_id="{$one.id}" data_group="{$group.id}" data_action="forbid" onclick="doadmin(this);">X</a>
+				</if>
+				</span>
+				</div>
+				<div class="name">
+				<a  href="#">{$one.name}</a>
+				</div>
+			</div>
+		</volist>
+		</div>
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+
+
+		<div class="mod" id="db-online-events">
+			<div class="hd">
+				<span class="func">
+					<a class="bn-create" href="http://www.sikcc.com"><span>欢迎来到Sikcc.com</span></a>
+				</span>
+				<h2>
+
+				</h2>
+			</div>
+			<div class="bd">
+			</div>
+		</div>
+		<div class="mod">
+
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

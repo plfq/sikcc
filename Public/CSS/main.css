@@ -33,8 +33,7 @@ body {
 	width:980px;
 	padding:0 12px;
 	margin:0 auto;
-	/*background:url(../Image/back_2.png) repeat;8*/
-	background-color:#FFFFFF;
+	background:url(../Image/back_2.png) repeat;
 }
 select,input,textarea {
 	outline:none;
@@ -58,9 +57,22 @@ a:hover {
 }
 h1{
 	word-wrap: break-word;
+	font-weight:normal;
 	font-size: 25px;
 	color: #494949;
 	padding: 15px 0 15px 15px;
+}
+h2{
+	word-wrap: break-word;
+	font-weight:normal;
+	font-size: 20px;
+}
+
+img.userhead{
+	border-radius:4px;
+	-webkit-box-shadow:1px 1px 2px #aaa;
+	-moz-box-shadow:1px 1px 2px #aaa;
+	box-shadow:1px 1px 2px #aaa;
 }
 
 /*
@@ -529,3 +541,46 @@ form.send_message span.input{
 	float:right;
 }
 
+/*小组管理日志页面*/
+.g_admin_logs{
+	width:100%;
+	padding:5px 0 5px 0;
+}
+.g_admin_logs .log{
+	width:100%;
+	margin:5px 0 0 5px;
+}
+/*小组成员页面*/
+.member_list{
+	width:100%;
+	clear:both;
+
+}
+.member_list .member{
+	width:82px;
+	margin:5px;
+	float:left;
+}
+.member_list .member .mouseover:hover .tool{
+	display:inline;
+
+}
+.member_list .member .name{
+	float:left;
+	text-align:center;
+	width:64px;
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.member_list .member .mouseover .tool{
+	display:none;
+	width:8px;
+	float:right;
+}
+.member_list .member .mouseover .tool a{
+	
+	float:left;
+	clear:right;
+}

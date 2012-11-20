@@ -30,13 +30,13 @@ class MyGroupModel extends Model {
 		if ($isPage) {
 			$page = $_REQUEST['page'];
 			$page || $page = 1;
-			$memberObj = M('Member_' . $NUM);
+			$memberObj = M('Mygroup_' . $NUM);
 			$list = $memberObj->page($page, 30)->where($where)->field($field)->select();
 			import("ORG.Page");
 			$pageObj = new Page($memberObj->where($where)->count(), $page, 30);
 			$pageObj->show();
 		} else {
-			$list = M('Member_' . $NUM)->where($where)->field($field)->select();
+			$list = M('Mygroup_' . $NUM)->where($where)->field($field)->select();
 		}
 		return $list;
 	}

@@ -5,11 +5,13 @@
 
 	<!-- 这里是左边的主体 -->
 	<div class="main">
-		<h1>{$user.name}</h1>
+		<h1>{$group.name}</h1>
 	<div class="group_sever_list">
 		<a href="__URL__/edit/{$group.id}" class="this_page">基本资料</a>
+		<a href="__URL__/keyWords/{$group.id}" >违禁词汇</a>
 		<a href="__URL__/advEdit/{$group.id}" >高级管理</a>
 		<a href="__URL__/icon/{$group.id}">修改图标</a>
+		<a href="__URL__/log/{$group.id}" >操作日志</a>
 	</div>
 	<div id="group_edit">
 	<form action="__URL__/saveEdit" method="POSt" >
@@ -24,15 +26,10 @@
 		</span>
 		
 		<span class="input">
-			成员昵称：<input type="text" name="member_name"/><span class="tips">暂时不可用</span>
-		</span>
-		<span class="input">
-			管理员昵称<input type="text" name="admin_name"/><span class="tips">暂时不可用</span>
-		</span>
-		<span class="input">
 			<input type="submit" value="修改"/>
 		</span>
 		<input type="hidden" name="group" value="{$group.id}"/>
+		<input type="hidden" name="oldtags" value="{$tags}"/>
 	</form>
 	
 	

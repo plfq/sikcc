@@ -8,47 +8,85 @@
 		<h1>{$group.name}</h1>
 	<div class="group_sever_list">
 		<a href="__URL__/edit/{$group.id}" >基本资料</a>
+		<a href="__URL__/keyWords/{$group.id}" >违禁词汇</a>
 		<a href="__URL__/advEdit/{$group.id}" class="this_page">高级管理</a>
 		<a href="__URL__/icon/{$group.id}">修改图标</a>
+		<a href="__URL__/log/{$group.id}" >操作日志</a>
 	</div>
 	<div id="group_edit">
 	<form action="__URL__/saveAdvEdit" method="POST" >
-		
+		<script type="text/javascript">
+		function edit_join(){
+			$(".join_hidden").toggle();
+			$(".join_show").toggle();
+		}
+		function save_join(){
+			var temp=document.getElementsByName("join");
+			for (i=0;i<temp.length;i++){
+				if(temp[i].checked)
+				{
+				var join_val=temp[i].value;
+				}
+			}
+			var groupId=$("[name='group']").val();
+			
+			$.getJSON("/Group/Admin/saveJoin", {join:join_val,group:groupId}, function(json){
+				alert(json.info);
+			});
+		}
+		function save_type_name(obj){
+			var groupId=$("[name='group']").val();
+			var name_val = $(obj).siblings("[type='text']").val();
+			var name_data_id = $(obj).siblings("[type='text']").attr('data-id');
+			$.getJSON("/Group/Admin/saveTopicType", {name:name_val,group:groupId,name_id:name_data_id}, function(json){
+				alert(json.info);
+			});
+		}
+		</script>
+		<span class="input"></span>
 		<span class="input">
-		加入小组审核：<input type="radio" name="type" value="d" checked="checked"/>无需审核
-		<input type="radio" name="type" value="d"/>管理员审核
-		<input type="radio" name="type" value="d"/>邀请码 <span class="tips">暂时无效</span>
+		加入方式 ：
+		<span class="join_show">
+		<if condition="$group['join'] == '1'">
+			无需审核
+		<elseif condition="$group['join'] == '2'" />
+			管理员审核
+		<elseif condition="$group['join'] == '3'" />
+			邀请码
+		</if>
+		<a href="#" onclick="edit_join();">修改</a>
 		</span>
-		<span class="input">
-			违禁词：<input type="text" name="keywords"/> <span class="tips">多个词之间空格分开(暂时不可用)</span>
+		<span class="join_hidden" style="display:none;">
+		<input type="radio" name="join" value="1" <if condition="$group['join'] == '1'"> checked="checked"</if> />无需审核
+		<input type="radio" name="join" value="2" <if condition="$group['join'] == '2'"> checked="checked"</if> />管理员审核
+		<input type="radio" name="join" value="3" <if condition="$group['join'] == '3'"> checked="checked"</if> />邀请码
+		<input type="button"  value="确定" onclick="save_join()"/>
+		<input type="button"  value="取消" onclick="edit_join();"/>
 		</span>
+		</span>
+		<span class="input"></span>
 		<span class="input">
-			小组话题分类1：<input type="text"  name="typeName[1]" value="{$groupTopicType.0.name}" />
+			小组话题分类1：<input type="text"  data-id="{$groupTopicType.0.id}" name="typeName[1]" value="{$groupTopicType.0.name}" />
+			<input type="button" value="修改" onclick="save_type_name(this);"/>
 			<span class="tips">留空即删除</span>
-			<input type="hidden" name="typeNameId[1]" value="{$groupTopicType.0.id}">
+			
 		</span>		
 		<span class="input">
-			小组话题分类2：<input type="text"  name="typeName[2]" value="{$groupTopicType.1.name}" />
-			<span class="tips">留空即删除</span>
-			<input type="hidden" name="typeNameId[2]" value="{$groupTopicType.1.id}">
+			小组话题分类2：<input type="text"  data-id="{$groupTopicType.1.id}" name="typeName[2]" value="{$groupTopicType.1.name}" />
+			<input type="button" value="修改" onclick="save_type_name(this);"/>
 		</span>		
 		<span class="input">
-			小组话题分类3：<input type="text"  name="typeName[3]" value="{$groupTopicType.2.name}" />
-			<span class="tips">留空即删除</span>
-			<input type="hidden" name="typeNameId[3]" value="{$groupTopicType.2.id}">
+			小组话题分类3：<input type="text"  data-id="{$groupTopicType.2.id}" name="typeName[3]" value="{$groupTopicType.2.name}" />
+			<input type="button" value="修改" onclick="save_type_name(this);"/>
 		</span>		
 		<span class="input">
-			小组话题分类4：<input type="text"  name="typeName[4]" value="{$groupTopicType.3.name}" />
-			<span class="tips">留空即删除</span>
-			<input type="hidden" name="typeNameId[4]" value="{$groupTopicType.3.id}">
-		</span>		
+			小组话题分类4：<input type="text"  data-id="{$groupTopicType.3.id}" name="typeName[4]" value="{$groupTopicType.3.name}" />
+			<input type="button" value="修改" onclick="save_type_name(this);"/>
 
-		
-
-		<span class="input">
-			<input type="submit" value="修改"/>
+			
 		</span>
 		<input type="hidden" name="group" value="{$group.id}"/>
+		
 	</form>
 	
 	

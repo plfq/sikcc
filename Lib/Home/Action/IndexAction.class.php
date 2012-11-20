@@ -2,6 +2,10 @@
 
 class IndexAction extends Action {
 
+	/**
+	 * @todo 把时间给限制了，把时间限制在这两天时间里面的尽量减少获取的数据两
+	 * 或者是把所有的动态统一采集到一张数据表中去，每5分钟更新下这张表，重新采集所有动态
+	 */
 	public function index() {
 
 		if (USER_ID) {

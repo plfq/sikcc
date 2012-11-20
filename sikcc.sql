@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySQL
+Source Server         : localhost-MySQL
 Source Server Version : 50528
 Source Host           : localhost:3306
 Source Database       : sikcc
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2012-11-11 01:32:59
+Date: 2012-11-21 03:21:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,34 +26,35 @@ CREATE TABLE `g_group` (
   `master_id` int(11) NOT NULL COMMENT '小组长Id',
   `icon` char(255) NOT NULL DEFAULT 'defined.png' COMMENT '小组图标',
   `gclass` int(11) NOT NULL COMMENT '小组的分类，类别',
+  `join` int(11) NOT NULL DEFAULT '1' COMMENT '1无限制2审核3邀请码',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_group
 -- ----------------------------
-INSERT INTO `g_group` VALUES ('1', null, '测试小组', '1', '1/1.png', '0');
-INSERT INTO `g_group` VALUES ('2', null, '测试小组2', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('3', null, '测试小组3', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('4', null, '测试小组4', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('5', null, '测试小组5', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('6', null, '测试小组6', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('7', null, '测试小组7', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('8', null, '测试小组8', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('9', null, '测试小组9', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('10', null, '测试小组10', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('11', null, '测试小组11', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('12', null, '测试小组12', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('13', null, '测试小组13', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('14', null, '测试小组14', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('15', null, '测试小组15', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('16', null, '测试小组16', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('17', null, '测试小组17', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('18', null, '测试小组18', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('19', null, '测试小组19', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('20', null, '测试小组20', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('21', null, '测试小组21', '1', 'defined.png', '0');
-INSERT INTO `g_group` VALUES ('22', null, '测试小组22', '1', 'defined.png', '0');
+INSERT INTO `g_group` VALUES ('1', null, '测试小组', '1', '1/1.png', '0', '1');
+INSERT INTO `g_group` VALUES ('2', null, '测试小组2', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('3', null, '测试小组3', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('4', null, '测试小组4', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('5', null, '测试小组5', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('6', null, '测试小组6', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('7', null, '测试小组7', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('8', null, '测试小组8', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('9', null, '测试小组9', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('10', null, '测试小组10', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('11', null, '测试小组11', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('12', null, '测试小组12', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('13', null, '测试小组13', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('14', null, '测试小组14', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('15', null, '测试小组15', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('16', null, '测试小组16', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('17', null, '测试小组17', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('18', null, '测试小组18', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('19', null, '测试小组19', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('20', null, '测试小组20', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('21', null, '测试小组21', '1', 'defined.png', '0', '1');
+INSERT INTO `g_group` VALUES ('22', null, '测试小组22', '1', 'defined.png', '0', '1');
 
 -- ----------------------------
 -- Table structure for `g_group_admin`
@@ -121,7 +122,7 @@ CREATE TABLE `g_group_topic_type` (
 -- ----------------------------
 -- Records of g_group_topic_type
 -- ----------------------------
-INSERT INTO `g_group_topic_type` VALUES ('1', '1', '2', '3', '5');
+INSERT INTO `g_group_topic_type` VALUES ('1', '1', '2', '3', '11');
 
 -- ----------------------------
 -- Table structure for `g_group_topic_type_name`
@@ -132,16 +133,16 @@ CREATE TABLE `g_group_topic_type_name` (
   `name` char(21) NOT NULL COMMENT '帖子分类的名字',
   `group_id` int(11) NOT NULL COMMENT '小组Id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_group_topic_type_name
 -- ----------------------------
-INSERT INTO `g_group_topic_type_name` VALUES ('1', '求助da', '1');
+INSERT INTO `g_group_topic_type_name` VALUES ('1', '提问', '1');
 INSERT INTO `g_group_topic_type_name` VALUES ('2', '讨论', '1');
 INSERT INTO `g_group_topic_type_name` VALUES ('3', '你猜', '1');
 INSERT INTO `g_group_topic_type_name` VALUES ('4', '教程', '1');
-INSERT INTO `g_group_topic_type_name` VALUES ('5', 'isa', '1');
+INSERT INTO `g_group_topic_type_name` VALUES ('11', '教程', '1');
 
 -- ----------------------------
 -- Table structure for `g_g_about`
@@ -157,9 +158,203 @@ CREATE TABLE `g_g_about` (
 -- ----------------------------
 -- Records of g_g_about
 -- ----------------------------
-INSERT INTO `g_g_about` VALUES ('1', '&lt;p&gt;&lt;br /&gt;&lt;', '1352520813');
+INSERT INTO `g_g_about` VALUES ('1', '这个是小组简介。', '1353080036');
 INSERT INTO `g_g_about` VALUES ('2', '出生ffyuffo', '1351086186');
 INSERT INTO `g_g_about` VALUES ('3', '测试 sikcc 抓紧时间', '1351661612');
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_0`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_0`;
+CREATE TABLE `g_g_admin_log_0` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_0
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_1`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_1`;
+CREATE TABLE `g_g_admin_log_1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_1
+-- ----------------------------
+INSERT INTO `g_g_admin_log_1` VALUES ('7', '1', 'Admin操作了帖子分类“提问”', '1353080198');
+INSERT INTO `g_g_admin_log_1` VALUES ('8', '1', 'Admin修改加入小组方式为不限制', '1353080238');
+INSERT INTO `g_g_admin_log_1` VALUES ('9', '1', 'Admin添加关键字18大', '1353081836');
+INSERT INTO `g_g_admin_log_1` VALUES ('10', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('11', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('12', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('13', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('14', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('15', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('16', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('17', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('18', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('19', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('20', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('21', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('22', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('23', '1', '1', '1');
+INSERT INTO `g_g_admin_log_1` VALUES ('24', '1', '1', '1');
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_2`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_2`;
+CREATE TABLE `g_g_admin_log_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_2
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_3`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_3`;
+CREATE TABLE `g_g_admin_log_3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_3
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_4`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_4`;
+CREATE TABLE `g_g_admin_log_4` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_4
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_5`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_5`;
+CREATE TABLE `g_g_admin_log_5` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_5
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_6`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_6`;
+CREATE TABLE `g_g_admin_log_6` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_6
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_7`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_7`;
+CREATE TABLE `g_g_admin_log_7` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_7
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_8`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_8`;
+CREATE TABLE `g_g_admin_log_8` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_8
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_admin_log_9`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_admin_log_9`;
+CREATE TABLE `g_g_admin_log_9` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `log` char(255) NOT NULL COMMENT '日志内容',
+  `date` int(11) NOT NULL COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_admin_log_9
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_apply`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_apply`;
+CREATE TABLE `g_g_apply` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '申请时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_apply
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `g_g_class`
@@ -184,6 +379,174 @@ INSERT INTO `g_g_class` VALUES ('6', '华南', '1');
 INSERT INTO `g_g_class` VALUES ('7', 'web相关', '3');
 
 -- ----------------------------
+-- Table structure for `g_g_fordib`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_fordib`;
+CREATE TABLE `g_g_fordib` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL COMMENT '被禁止加入小组的用户Id',
+  `group_id` int(11) NOT NULL COMMENT '被禁止加入的小组',
+  `date` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_fordib
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_0`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_0`;
+CREATE TABLE `g_g_keywords_0` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_0
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_1`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_1`;
+CREATE TABLE `g_g_keywords_1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_1
+-- ----------------------------
+INSERT INTO `g_g_keywords_1` VALUES ('3', '1', '我靠');
+INSERT INTO `g_g_keywords_1` VALUES ('4', '1', '18大');
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_2`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_2`;
+CREATE TABLE `g_g_keywords_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_2
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_3`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_3`;
+CREATE TABLE `g_g_keywords_3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_3
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_4`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_4`;
+CREATE TABLE `g_g_keywords_4` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_4
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_5`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_5`;
+CREATE TABLE `g_g_keywords_5` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_5
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_6`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_6`;
+CREATE TABLE `g_g_keywords_6` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_6
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_7`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_7`;
+CREATE TABLE `g_g_keywords_7` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_7
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_8`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_8`;
+CREATE TABLE `g_g_keywords_8` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_8
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_g_keywords_9`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_g_keywords_9`;
+CREATE TABLE `g_g_keywords_9` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `word` char(21) NOT NULL COMMENT '关键字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_g_keywords_9
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `g_g_tags`
 -- ----------------------------
 DROP TABLE IF EXISTS `g_g_tags`;
@@ -192,7 +555,7 @@ CREATE TABLE `g_g_tags` (
   `name` char(21) NOT NULL COMMENT '标签名字',
   `date` int(11) NOT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_g_tags
@@ -206,6 +569,29 @@ INSERT INTO `g_g_tags` VALUES ('10', '清新', '1352188924');
 INSERT INTO `g_g_tags` VALUES ('11', 'fuck', '1352457153');
 INSERT INTO `g_g_tags` VALUES ('12', '考x试', '1352457290');
 INSERT INTO `g_g_tags` VALUES ('13', 'fuckc', '1352457315');
+INSERT INTO `g_g_tags` VALUES ('14', '你好', '1352953530');
+INSERT INTO `g_g_tags` VALUES ('15', '小组', '1352953530');
+INSERT INTO `g_g_tags` VALUES ('16', '简介', '1352953530');
+INSERT INTO `g_g_tags` VALUES ('17', '标签', '1352953531');
+
+-- ----------------------------
+-- Table structure for `g_linkman`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_linkman`;
+CREATE TABLE `g_linkman` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `receiver` int(11) NOT NULL COMMENT '接收Id',
+  `sender` int(11) NOT NULL COMMENT '发送者Id',
+  `date` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_linkman
+-- ----------------------------
+INSERT INTO `g_linkman` VALUES ('2', '1', '3', '1111');
+INSERT INTO `g_linkman` VALUES ('3', '1', '4', '1232');
+INSERT INTO `g_linkman` VALUES ('11', '2', '1', '1352817279');
 
 -- ----------------------------
 -- Table structure for `g_login_1`
@@ -217,7 +603,7 @@ CREATE TABLE `g_login_1` (
   `login_date` int(11) NOT NULL COMMENT '登陆时间',
   `login_ip` char(255) NOT NULL COMMENT '登陆IP',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_login_1
@@ -265,6 +651,26 @@ INSERT INTO `g_login_1` VALUES ('41', '1', '1352451839', '127.0.0.1');
 INSERT INTO `g_login_1` VALUES ('42', '1', '1352457075', '127.0.0.1');
 INSERT INTO `g_login_1` VALUES ('43', '1', '1352462878', '127.0.0.1');
 INSERT INTO `g_login_1` VALUES ('44', '1', '1352520528', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('45', '1', '1352766601', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('46', '1', '1352772123', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('47', '1', '1352774288', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('48', '1', '1352787312', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('49', '1', '1352793506', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('50', '1', '1352798296', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('51', '1', '1352807169', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('52', '1', '1352953268', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('53', '1', '1352991001', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('54', '1', '1353041109', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('55', '1', '1353047671', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('56', '1', '1353048180', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('57', '1', '1353072893', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('58', '1', '1353135424', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('59', '3', '1353141959', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('60', '1', '1353430342', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('61', '1', '1353437685', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('62', '1', '1353437755', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('63', '1', '1353437884', '127.0.0.1');
+INSERT INTO `g_login_1` VALUES ('64', '1', '1353438049', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `g_member_0`
@@ -292,13 +698,12 @@ CREATE TABLE `g_member_1` (
   `user_id` int(11) NOT NULL COMMENT '用户Id',
   `date` int(11) NOT NULL COMMENT '加入时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_member_1
 -- ----------------------------
-INSERT INTO `g_member_1` VALUES ('2', '1', '1', '1351666776');
-INSERT INTO `g_member_1` VALUES ('3', '2', '1', '1351666776');
+INSERT INTO `g_member_1` VALUES ('4', '1', '1', '1353135446');
 
 -- ----------------------------
 -- Table structure for `g_member_2`
@@ -491,11 +896,24 @@ CREATE TABLE `g_message_3` (
   `content` char(255) NOT NULL COMMENT '纸条内容',
   `date` int(11) NOT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of g_message_3
 -- ----------------------------
+INSERT INTO `g_message_3` VALUES ('1', '1', '2', '这个是测试的', '122312312');
+INSERT INTO `g_message_3` VALUES ('2', '1', '2', '这个意思的飞机都受到', '126328176');
+INSERT INTO `g_message_3` VALUES ('3', '2', '1', '的是阿松isdajso奥斯阿第克', '389837294');
+INSERT INTO `g_message_3` VALUES ('4', '1', '2', '这个是', '1352815714');
+INSERT INTO `g_message_3` VALUES ('5', '1', '2', '分为去微软认为人权为荣二人台日', '1352815788');
+INSERT INTO `g_message_3` VALUES ('6', '1', '2', '怎么是失败的 啊？', '1352816058');
+INSERT INTO `g_message_3` VALUES ('7', '1', '2', '怎么是失败的 啊？', '1352816088');
+INSERT INTO `g_message_3` VALUES ('8', '1', '2', 'vsdf', '1352816197');
+INSERT INTO `g_message_3` VALUES ('9', '1', '2', '你哦打算弄死大苏打死凹洞啊电话iash', '1352816397');
+INSERT INTO `g_message_3` VALUES ('10', '1', '2', '你哦打算弄死大苏打死凹洞啊电话iash', '1352816457');
+INSERT INTO `g_message_3` VALUES ('11', '1', '2', 'asfddadsdfasdf', '1352816886');
+INSERT INTO `g_message_3` VALUES ('12', '1', '2', 'dfsdfasdf', '1352817263');
+INSERT INTO `g_message_3` VALUES ('13', '1', '2', 'daSDAsdaSDasdasddfsd', '1352817278');
 
 -- ----------------------------
 -- Table structure for `g_message_4`
@@ -597,6 +1015,167 @@ CREATE TABLE `g_message_9` (
 
 -- ----------------------------
 -- Records of g_message_9
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_0`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_0`;
+CREATE TABLE `g_mygroup_0` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_0
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_1`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_1`;
+CREATE TABLE `g_mygroup_1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_1
+-- ----------------------------
+INSERT INTO `g_mygroup_1` VALUES ('1', '1', '1', '1351666776');
+
+-- ----------------------------
+-- Table structure for `g_mygroup_2`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_2`;
+CREATE TABLE `g_mygroup_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_2
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_3`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_3`;
+CREATE TABLE `g_mygroup_3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_3
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_4`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_4`;
+CREATE TABLE `g_mygroup_4` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_4
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_5`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_5`;
+CREATE TABLE `g_mygroup_5` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_5
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_6`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_6`;
+CREATE TABLE `g_mygroup_6` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_6
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_7`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_7`;
+CREATE TABLE `g_mygroup_7` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_7
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_8`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_8`;
+CREATE TABLE `g_mygroup_8` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_8
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `g_mygroup_9`
+-- ----------------------------
+DROP TABLE IF EXISTS `g_mygroup_9`;
+CREATE TABLE `g_mygroup_9` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL COMMENT '小组Id',
+  `user_id` int(11) NOT NULL COMMENT '用户Id',
+  `date` int(11) NOT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of g_mygroup_9
 -- ----------------------------
 
 -- ----------------------------
@@ -837,7 +1416,7 @@ CREATE TABLE `g_session` (
 -- ----------------------------
 -- Records of g_session
 -- ----------------------------
-INSERT INTO `g_session` VALUES ('kdepk6lv1h2gd8ltf0e5sh3qh6', '1352537259', '');
+INSERT INTO `g_session` VALUES ('ebkj215hg6ohrn5n7pbl2710r6', '1353441656', 'user_id|s:1:\"1\";');
 
 -- ----------------------------
 -- Table structure for `g_topic_0`

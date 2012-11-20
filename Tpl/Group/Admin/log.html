@@ -1,0 +1,36 @@
+
+<include file="./Tpl/Public/header.html" title="修改账号密码" />
+<!-- 这里是主体部分content -->
+<div id="content">
+
+	<!-- 这里是左边的主体 -->
+	<div class="main">
+		<h1>{$group.name}</h1>
+	<div class="group_sever_list">
+		<a href="__URL__/edit/{$group.id}" >基本资料</a>
+		<a href="__URL__/keyWords/{$group.id}" >违禁词汇</a>
+		<a href="__URL__/advEdit/{$group.id}" >高级管理</a>
+		<a href="__URL__/icon/{$group.id}">修改图标</a>
+		<a href="__URL__/log/{$group.id}" class="this_page">操作日志</a>
+	</div>
+	<div class="g_admin_logs">
+	
+		<volist name="logs" id="one">
+		<div class="log">
+		{$one.date|date='Y-m-d H:i:s',###}: {$one.log}
+		</div>
+		
+		</volist>
+		
+	</div>
+	__PAGE__
+	</div>
+
+	<!-- 这里是右边的部分 -->
+	<div class="side">
+		<div >
+		这里是小组管理页面
+		</div>
+	</div>
+</div>
+<include file="./Tpl/Public/footer.html"  />

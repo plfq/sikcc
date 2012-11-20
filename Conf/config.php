@@ -3,7 +3,7 @@ return array(
 	//'配置项'=>'配置值'
 	
 	'SHOW_PAGE_TRACE'  => true, // 显示页面Trace信息
-	'SESSION_TYPE' => 'DB', // session hander类型 默认无需设置 除非扩展了session hander驱动
+	//'SESSION_TYPE' => 'DB', 暂时关闭，太影响性能// session hander类型 默认无需设置 除非扩展了session hander驱动
 	'DB_TYPE'=>'mysql',
 	'DB_HOST'=>'localhost',
 	'DB_NAME'=>'sikcc',
