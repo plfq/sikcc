@@ -1,0 +1,28 @@
+[ 2012-11-23T14:39:18+08:00 ] 127.0.0.1 /todo/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000832s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.000765s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025840s ]
+INFO: [ view_filter ] --START--
+NOTIC: [8] Use of undefined constant __PAGE__ - assumed '__PAGE__' G:\sikcc\todo\ThinkPHP\Lib\Behavior\ContentReplaceBehavior.class.php 第 49 行.
+INFO: Run ContentReplace Behavior [ RunTime:-0.026630s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.027312s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.027910s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.028449s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002457s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.029125s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2012-11-23T14:42:55+08:00 ] ERR: (ThinkException) 无法加载模块:Index
+[ 2012-11-23T14:43:37+08:00 ] ERR: (ThinkException) 无法加载模块:Index
+[ 2012-11-23T15:21:43+08:00 ] ERR: [4] syntax error, unexpected ';' G:\sikcc\todo\Lib\Api\Action\LoginAction.class.php 第 18 行.
+[ 2012-11-23T17:43:03+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:44:24+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:47:06+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:48:53+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:49:59+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:51:24+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
+[ 2012-11-23T17:51:46+08:00 ] ERR: (ThinkException) Action:param您所请求的方法不存在！
